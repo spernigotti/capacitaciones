@@ -1,0 +1,20 @@
+{
+  "name": "flexbox",
+  "version": "1.0.0",
+  "description": "Capacitación de flexbox",
+  "main": "index.js",
+  "scripts": {
+    "pug": "pug src/views --basedir /src/views --out dist --pretty --watch",
+    "browser-sync": "browser-sync start -s dist -f dist",
+    "start": "npm-run-all --parallel browser-sync pug"
+  },
+  "author": "Santiago Pernigotti",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "npm-run-all": "^4.0.2",
+    "pug": "^2.0.0-beta11",
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "dependencies": {}
+}

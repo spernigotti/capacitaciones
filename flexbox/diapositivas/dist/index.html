@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capacitación Flexbox</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Flex Box Layout</h1>
+          <p><small>By Santiago Pernigotti</small></p>
+        </section>
+        <section>
+          <h2>Qué es Flex box?</h2>
+          <p class="fragment">Un modelo de layout, es decir define cómo se muestran los elementos y cómo se relacionan con el resto.</p>
+          <!-- no es solo una propiedad-->
+          <p class="fragment">Presenta una forma sencilla y más eficiente de alinear y distribuir "items" en un contenedor.</p>
+          <!-- incluso si el tamaño de los items es deconocido o dinamico, por eso la palabra flex-->
+        </section>
+        <section>
+          <h2>Layout modes</h2>
+          <ul>
+            <li>block layout</li>
+            <li>inline layout</li>
+            <li>table layout</li>
+            <li>positioned layout</li>
+            <li class="fragment">flexbox layout</li>
+            <li class="fragment">grid layout (comming soon)</li>
+            <!-- cada uno tiene su propio comportamiento-->
+          </ul>
+        </section>
+        <section>
+          <h2>Soporte de navegadores</h2>
+          <p><a href="http://caniuse.com/#search=flexbox" target="_blank"><img src="img/browser-support.png"></a></p>
+        </section>
+        <section>
+          <h2>Qué podemos hacer con flex box?</h2>
+          <ul>
+            <li>Alinear elementos sobre el eje horizontal o vertical</li>
+            <!-- hasta el momento no se podian alinear sobre un eje vertical, o era dificil-->
+            <li>Alinear los elementos con respecto a sus hermanos</li>
+            <li>Redefinir el orden en el que aparecen los elementos</li>
+            <!-- podemos hacer que el ultimo elemento aparezca primero-->
+            <li>Definir la orientación en el que van a aparecer los elementos</li>
+            <li>Tamaños flexibles para las cajas</li>
+            <!-- podes definir un alto o ancho y ese no necesariamente es el que quede al momento de hacer el render-->
+            <!-- aprobecha de la mejor manera el espacio dispoonible del contenedor-->
+            <li>Elementos hermanos con igual alto</li>
+            <li class="fragment">y mucho más...</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Terminología</h3>
+          <p><img src="img/terminologia1.jpg"></p>
+        </section>
+        <section>
+          <h3>Terminología</h3>
+          <p><img src="img/terminologia2.jpg"></p>
+        </section>
+        <section>
+          <h3>Terminología</h3>
+          <p><img src="img/flex-terms.png"></p>
+        </section>
+        <section>
+          <h2>Que empiece la magia</h2>
+          <pre class="fragment"><code class="html" data-trim><div class="flex-container">
+  <div class="flex-item">item 1</div>
+  <div class="flex-item">item 2</div>
+  <div class="flex-item">item 3</div>
+</div></code></pre>
+          <pre class="fragment"><code class="css" data-trim>.flex-container {
+  display: flex;
+}</code></pre>
+        </section>
+        <section>
+          <h2>Definición de ejes y orientación</h2>
+          <h3>flex-direction</h3>
+          <div>
+            <ul>
+              <li>
+                 row <em style="color: #5e5e5e;">(default)</em></li>
+              <li>row-reverse</li>
+              <li>column</li>
+              <li>column-reverse</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h2>Alineación sobre el main axis</h2>
+          <h3>justify-content</h3>
+          <div>
+            <ul>
+              <li>
+                 flex-start <em style="color: #5e5e5e;">(default)</em></li>
+              <li>flex-end</li>
+              <li>center</li>
+              <li>space-between</li>
+              <li>space-around</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h2>Alineación sobre el cross axis</h2>
+          <h3>align-items</h3>
+          <div>
+            <ul>
+              <li>
+                 stretch <em style="color: #5e5e5e;">(default)</em></li>
+              <li>flex-start</li>
+              <li>flex-end</li>
+              <li>center</li>
+              <li>baseline</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: 'plugin/markdown/marked.js' },
+      		{ src: 'plugin/markdown/markdown.js' },
+      		{ src: 'plugin/notes/notes.js', async: true },
+      		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+      
+    </script>
+  </body>
+</html>
+<!-- el que sigue usando floats es un masoquista-->
+<!-- es como tener a messi en el banco-->
+<!-- aprender las nuevas herramientas-->
+<!-- antes utilizaban flex a ciegas-->
+<!-- agregar, order, align-self-->

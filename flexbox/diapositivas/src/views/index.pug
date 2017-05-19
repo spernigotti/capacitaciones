@@ -1,0 +1,140 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Capacitación Flexbox
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		link(rel="stylesheet" href="css/reveal.css")
+		link(rel="stylesheet" href="css/theme/moon.css")
+
+		link(rel="stylesheet" href="lib/css/zenburn.css")
+	body
+		.reveal
+			.slides
+				section
+					h1 Flex Box Layout
+					//- h3 Lorem ipsum dolor sit amet.
+					p
+						small By Santiago Pernigotti
+				//- section indice
+				section
+					h2 Qué es Flex box?
+					p.fragment Un modelo de layout, es decir define cómo se muestran los elementos y cómo se relacionan con el resto.
+					// no es solo una propiedad
+					p.fragment Presenta una forma sencilla y más eficiente de alinear y distribuir "items" en un contenedor.
+					// incluso si el tamaño de los items es deconocido o dinamico, por eso la palabra flex
+					
+				section
+					h2 Layout modes
+					ul
+						li block layout
+						li inline layout
+						li table layout
+						li positioned layout
+						li.fragment flexbox layout
+						li.fragment grid layout (comming soon)
+						// cada uno tiene su propio comportamiento
+				section
+					h2 Soporte de navegadores
+					p
+						a(href="http://caniuse.com/#search=flexbox" target="_blank")
+							img(src="img/browser-support.png")
+				section
+					h2 Qué podemos hacer con flex box?
+					ul
+						li Alinear elementos sobre el eje horizontal o vertical
+						// hasta el momento no se podian alinear sobre un eje vertical, o era dificil
+						li Alinear los elementos con respecto a sus hermanos
+						li Redefinir el orden en el que aparecen los elementos
+						// podemos hacer que el ultimo elemento aparezca primero
+						li Definir la orientación en el que van a aparecer los elementos
+						li Tamaños flexibles para las cajas
+						// podes definir un alto o ancho y ese no necesariamente es el que quede al momento de hacer el render
+						// aprobecha de la mejor manera el espacio dispoonible del contenedor
+						li Elementos hermanos con igual alto
+						li.fragment y mucho más...
+
+				section
+					h3 Terminología
+					p
+						img(src="img/terminologia1.jpg")
+				section
+					h3 Terminología
+					p
+						img(src="img/terminologia2.jpg")
+				section
+					h3 Terminología
+					p
+						img(src="img/flex-terms.png")
+				section
+					h2 Que empiece la magia
+					pre.fragment
+						code.html(data-trim).
+							<div class="flex-container">
+							  <div class="flex-item">item 1</div>
+							  <div class="flex-item">item 2</div>
+							  <div class="flex-item">item 3</div>
+							</div>
+					pre.fragment
+						code.css(data-trim).
+							.flex-container {
+							  display: flex;
+							}
+				section
+					h2 Definición de ejes y orientación
+					h3 flex-direction
+					div
+						ul
+							li 
+								| row 
+								em(style="color: #5e5e5e") (default)
+							li row-reverse
+							li column
+							li column-reverse
+				section
+					h2 Alineación sobre el main axis
+					h3 justify-content
+					div
+						ul
+							li 
+								| flex-start 
+								em(style="color: #5e5e5e") (default)
+							li flex-end
+							li center
+							li space-between
+							li space-around
+				section
+					h2 Alineación sobre el cross axis
+					h3 align-items
+					div
+						ul
+							li 
+								| stretch 
+								em(style="color: #5e5e5e") (default)
+							li flex-start
+							li flex-end
+							li center
+							li baseline
+
+
+
+		script(src="lib/js/head.min.js")
+		script(src="js/reveal.js")
+		script.
+			Reveal.initialize({
+				history: true,
+				transition: "none",
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+// el que sigue usando floats es un masoquista
+// es como tener a messi en el banco
+// aprender las nuevas herramientas
+// antes utilizaban flex a ciegas
+
+// agregar, order, align-self
