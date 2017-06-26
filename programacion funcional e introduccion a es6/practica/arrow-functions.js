@@ -10,12 +10,12 @@ product => product.listPrice != product.bestPrice;
 // retorno de objeto
 (param1, pram2, ..., paramN) => ({ name: "sarsa"});
 
-// ES5
+// <= ES5
 function(param1, pram2, ..., paramN) {
 	return expresion;
 }
 
-
+// ES6
 (param1, pram2, ..., paramN) => {
 	let variables...
 	...
@@ -23,7 +23,7 @@ function(param1, pram2, ..., paramN) {
 	return expresion;
 }
 
-// ES5
+// <= ES5
 function(param1, pram2, ..., paramN) {
 	var variables...
 	...
@@ -32,19 +32,24 @@ function(param1, pram2, ..., paramN) {
 }
 
 
+// this contextual
 const Geant = {
 	init: function() {
-		// < ES5
+		// <= ES5
 		setTimeout(function() {
-			console.log('this',this);	
+			console.log('this ES5',this); // this es window
 		}, 100);
-		console.log("this2",this)
 
-		$("body").on("click", this.handleClick)
+		// ES6
+		setTimeout(() => {
+			console.log('this 6',this); // this es Geant
+		}, 100);
+
+		$("body").on("click", event => this.handleClick);
 	},
 
 	handleClick: function() {
-		console.log('click',this);
+		console.log('this click',this);
 	}
 }
 

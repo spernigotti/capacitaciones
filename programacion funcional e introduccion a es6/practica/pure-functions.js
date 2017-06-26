@@ -16,16 +16,3 @@ function agregarAJuan(names) {
 
 	return copyNames;
 }
-
-
-function Counter(){
-	let count = 0;
-	return function() {
-		return ++count;
-	}
-}
-
-let increment = Counter();
-
-increment();
-increment();
