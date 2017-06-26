@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Programación funcional en javascript e introducción a es6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Programación funcional en javascript e introducción a es6</h2>
+        </section>
+        <section>
+          <h2>ES6 / ES2015</h2>
+          <ul>
+            <li><a href="http://es6-features.org/">http://es6-features.org/</a></li>
+            <li><a href="https://babeljs.io/repl/">https://babeljs.io/repl/</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>let, const</h3>
+          <pre><code class="javascript" data-trim>function varTest() {
+  var x = 1;
+  if (true) {
+    var x = 2;  // same variable!
+  }
+  console.log(x);  // 2
+}
+</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>function letTest() {
+  let x = 1;
+  if (true) {
+    let x = 2;  // different variable
+  }
+  console.log(x);  // 1
+}</code></pre>
+        </section>
+        <section>
+          <h3>let, const</h3>
+          <pre><code class="javascript" data-trim>const someNumber = 44;
+
+someNumber = 55; // Error!</code></pre>
+        </section>
+        <section>
+          <h3>Arrow Functions</h3>
+          <pre><code class="javascript" data-trim>// ES5
+var hasListPrice = function(product) {
+	return product.listPrice != product.bestPrice;
+}
+
+// ES6
+const isAvailable = product => product.listPrice != product.bestPrice;</code></pre>
+        </section>
+        <section>
+          <h2>Qué es la programación funcional?</h2>
+          <p class="fragment">Un paradigma de programación</p>
+          <p class="fragment">Un estilo de programación</p>
+          <div class="fragment">
+            <h3>Características</h3>
+            <ul>
+              <li>Eliminación de efectos secundarios</li>
+              <li>Funciones Puras</li>
+              <li>Inmutabilidad de los datos</li>
+              <li>Funciones de alto orden</li>
+              <li>Recursión</li>
+              <!-- li Expresiones lambda-->
+              <!-- li Transparecia referencial-->
+              <!-- li Clousures-->
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3>Efectos secundarios</h3>
+          <p>Modifica alguna variable fuera de su scope</p>
+          <pre><code class="javascript" data-trim>let a = 0;
+
+function increment() {
+	a++;
+}</code></pre>
+        </section>
+        <section>
+          <h3>Funciones puras</h3>
+          <ul>
+            <li class="fragment">Simpre da el mismo resultado para los mismos parametros</li>
+            <li class="fragment">La llamada a la función no causa efectos secundarios</li>
+          </ul>
+          <pre class="fragment"><code class="javascript" data-trim>function addElement(someArray) {
+	const anotherArray = someArray.slice();
+	anotherArray.push("element");
+
+	return anotherArray;
+}</code></pre>
+        </section>
+        <section>
+          <h3>Funciones de alto orden</h3>
+          <ul>
+            <li class="fragment">Tiene una o más funciones como parámetro</li>
+            <li class="fragment">o retorna una función</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Funciones de alto orden</h3>
+          <pre class="fragment"><code class="javascript" data-trim>function double(x) {
+	return x*2;
+}
+
+function specialAdd(x, y, operation) {
+	return operation(x) + operation(y);
+}
+
+specialAdd(2,3, double);</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>function Counter(){
+	let count = 0;
+	return function() {
+		return ++count;
+	}
+}
+
+let increment = Counter();
+
+increment();</code></pre>
+        </section>
+        <section>
+          <h3>Map, Filter, Reduce<img src="img/map-reduce-sandwich.png"></h3>
+        </section>
+        <section>
+          <div>
+            <h3>Map</h3>
+            <pre><code class="javascript" data-trim>const productIds = products.map(product => product.id);</code></pre>
+          </div>
+          <div class="fragment">
+            <h3>Filter</h3>
+            <pre><code class="javascript" data-trim>const availableProducts = products.filter(product => product.hasStock);</code></pre>
+          </div>
+          <div class="fragment">
+            <h3>Reduce</h3>
+            <pre><code class="javascript" data-trim>const total = products.reduce((acum, product) => acum + product.price);
+
+</code></pre>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>
