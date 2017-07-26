@@ -65,7 +65,7 @@ formatProduct(product1, product2, product3);
 4. Definir la función *concatProducts* que recibe dos *arrays* de objetos y la concatenación de ambos.
 
 ```javascript
-concatProducts(products1, products2);
+function concatProducts(products1, products2) {}
 ```
 
 #### Ejemplo
