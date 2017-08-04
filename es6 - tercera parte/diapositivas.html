@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Programación funcional en javascript e introducción a es6</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides-src/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../slides-src/reveal/css/theme/league.css">
+    <link rel="stylesheet" href="../slides-src/reveal/lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>ES6 - Tercera Parte</h2>
+        </section>
+        <section>
+          <h2>ES6 / ES2015</h2>
+          <ul>
+            <li><a href="http://es6-features.org/">http://es6-features.org/</a></li>
+            <li><a href="https://babeljs.io/repl/">https://babeljs.io/repl/</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>Temas vistos hasta ahora</h3>
+          <ul>
+            <li>let, const</li>
+            <li>Arrow functions</li>
+            <li>Template literal</li>
+            <li>Default parameters</li>
+            <li>Spread operator</li>
+            <li>Object Property Shorthand</li>
+            <li>Computed Property Names</li>
+            <li>Method Properties</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Destructuring</h2><img src="img/inicio.jpeg">
+        </section>
+        <section>
+          <h3>Sintaxis</h3>
+          <pre><code class="javascript" data-trim>const { name, price } = { name: 'TV Sony 4K', price: 9000 };</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>const [a, b,, ...rest] = [10, 20, 30, 40, 50];</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>const [first, second] = iterableObject;</code></pre>
+        </section>
+        <section>
+          <p>Se puede primero declarar las variables y luego asignarlas</p>
+          <pre class="fragment"><code class="javascript" data-trim>let name, price, a, b, rest;
+
+({ name, price } = { name: 'TV Sony 4K', price: 9000 });
+
+[a, b, ...rest] = [10, 20, 30, 40, 50];</code></pre>
+        </section>
+        <section>
+          <p>Se pueden definir valores por defecto</p>
+          <pre><code class="javascript" data-trim>const { name, price, hasStock = true } = { name: 'TV Sony 4K', price: 9000 };
+console.log(hasStock); // true</code></pre>
+          <div class="fragment">
+            <p>Redefinir los nombres de las propiedades
+              <pre><code class="javascript" data-trim>const { itemId: id, name} = { itemId: '23', name: 'TV Sony 4K' };</code></pre>
+            </p>
+          </div>
+          <div class="fragment">
+            <pre><code class="javascript" data-trim>const { 'product-name': name, price} = { 'product-name': 'TV Sony 4K', price: 9000 };</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Destructuring anidado</h3>
+          <pre><code class="javascript" data-trim>const order = {
+  "orderId": "v505203wofq-01",
+  "value": 985,
+  "clientProfileData": {
+    "email": "santiago@fizzmod.com",
+    "firstName": "Santiago",
+    "lastName": "Fizzmod",
+  },
+  "logisticsInfo": [
+    {
+      "itemIndex": 0,
+      "selectedSla": "Entrega a domicilio",
+    }
+  ]
+};</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>const { orderId, clientProfileData: { email, firstName }, logisticsInfo: [{ selectedSla }] } = order;</code></pre>
+        </section>
+        <section><img style="width:60%;" src="img/mind.gif"></section>
+        <section>
+          <h3>Destructuring se puede utilizar como parametros de funciones!</h3>
+        </section>
+        <section>
+          <pre><code class="javascript" data-trim>function showProduct({ name, id, price = 0 }) {
+	console.log(`El producto ${name} vale $${price}`);
+}</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>// = {} significa parámetro no obligatorio
+function showProduct({ name, id, price = 0 } = {}) {
+	console.log(`El producto ${name} vale $${price}`);
+}				</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>products.map(({ itemId: id, quantity }) => ({id, quantity}));</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>// en ES5
+function showProduct(product) {
+	var price = product.price === undefined ? 0 : product.price;
+	console.log('El producto ' + product.name 'vale $' + price);
+}
+
+products.map(function (product) {
+  var id = product.itemId,
+      quantity = product.quantity;
+  return { id: id, quantity: quantity };
+});
+</code></pre>
+        </section>
+        <section>
+          <p>Permite intercambiar variables (swap)
+            <pre><code class="javascript" data-trim>let a = 1;
+let b = 3;
+
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1</code></pre>
+          </p>
+        </section>
+        <!---->
+        <section>
+          <h3>For of</h3>
+          <pre><code class="javascript" data-trim>for (variable of iterable) {
+  statement
+}</code></pre>
+          <pre class="fragment"><code class="javascript" data-trim>const payments = ['Mercado Pago', 'Visa', 'Contra entrega'];
+
+for (const payment of payments) {
+  console.log(payment);
+}</code></pre>
+        </section>
+        <section>
+          <h3>For of + destructuring</h3>
+          <pre class="fragment"><code class="javascript" data-trim>const products = [{
+	name: 'TV Sony 4K',
+	skuId: '223',
+}, {
+	name: 'Xperia Z4 Tablet',
+	skuId: '293,',
+},{
+	name: 'Cargador USB portátil',
+	skuId: '588',
+}];
+
+for (const { name } of products) {
+  console.log(name);
+}</code></pre>
+        </section>
+        <section>
+          <p>ya se pueden ir al fulbo</p><img src="img/futbol.gif">
+        </section>
+      </div>
+    </div>
+    <script src="../slides-src/reveal/lib/js/head.min.js"></script>
+    <script src="../slides-src/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: '../slides-src/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+extends ../slides-src/layout.pug
+block slides
+	section
+		h2 ES6 - Tercera Parte
+	
+	section
+		h2 ES6 / ES2015
+		ul
+			li
+				a(href="http://es6-features.org/") http://es6-features.org/
+			li
+				a(href="https://babeljs.io/repl/") https://babeljs.io/repl/
+	section
+		h3 Temas vistos hasta ahora
+		ul
+			li let, const
+			li Arrow functions
+			li Template literal
+			li Default parameters
+			li Spread operator
+			li Object Property Shorthand
+			li Computed Property Names
+			li Method Properties
+	section
+		h2 Destructuring
+		img(src="img/inicio.jpeg")
+	section
+		h3 Sintaxis
+		pre
+			code.javascript(data-trim).
+				const { name, price } = { name: 'TV Sony 4K', price: 9000 };
+		pre.fragment
+			code.javascript(data-trim).
+				const [a, b,, ...rest] = [10, 20, 30, 40, 50];
+		pre.fragment
+			code.javascript(data-trim).
+				const [first, second] = iterableObject;
+	section
+		p Se puede primero declarar las variables y luego asignarlas
+		pre.fragment
+			code.javascript(data-trim).
+				let name, price, a, b, rest;
+
+				({ name, price } = { name: 'TV Sony 4K', price: 9000 });
+
+				[a, b, ...rest] = [10, 20, 30, 40, 50];
+	section
+		p Se pueden definir valores por defecto
+		pre
+			code.javascript(data-trim).
+				const { name, price, hasStock = true } = { name: 'TV Sony 4K', price: 9000 };
+				console.log(hasStock); // true
+		div.fragment
+			p Redefinir los nombres de las propiedades
+				pre
+					code.javascript(data-trim).
+						const { itemId: id, name} = { itemId: '23', name: 'TV Sony 4K' };
+		div.fragment
+			pre
+				code.javascript(data-trim).
+					const { 'product-name': name, price} = { 'product-name': 'TV Sony 4K', price: 9000 };
+	section
+		h3 Destructuring anidado
+		pre
+			code.javascript(data-trim).
+				const order = {
+				  "orderId": "v505203wofq-01",
+				  "value": 985,
+				  "clientProfileData": {
+				    "email": "santiago@fizzmod.com",
+				    "firstName": "Santiago",
+				    "lastName": "Fizzmod",
+				  },
+				  "logisticsInfo": [
+				    {
+				      "itemIndex": 0,
+				      "selectedSla": "Entrega a domicilio",
+				    }
+				  ]
+				};
+		pre.fragment
+			code.javascript(data-trim).
+				const { orderId, clientProfileData: { email, firstName }, logisticsInfo: [{ selectedSla }] } = order;
+	section
+		img(style={width: '60%'} src="img/mind.gif")
+	section
+		h3 Destructuring se puede utilizar como parametros de funciones!
+	section
+		pre
+			code.javascript(data-trim).
+				function showProduct({ name, id, price = 0 }) {
+					console.log(`El producto ${name} vale $${price}`);
+				}
+		pre.fragment
+			code.javascript(data-trim).
+				// = {} significa parámetro no obligatorio
+				function showProduct({ name, id, price = 0 } = {}) {
+					console.log(`El producto ${name} vale $${price}`);
+				}				
+		pre.fragment
+			code.javascript(data-trim).
+				products.map(({ itemId: id, quantity }) => ({id, quantity}));
+		pre.fragment
+			code.javascript(data-trim).
+				// en ES5
+				function showProduct(product) {
+					var price = product.price === undefined ? 0 : product.price;
+					console.log('El producto ' + product.name 'vale $' + price);
+				}
+
+				products.map(function (product) {
+				  var id = product.itemId,
+				      quantity = product.quantity;
+				  return { id: id, quantity: quantity };
+				});
+
+	section
+		p Permite intercambiar variables (swap)
+			pre
+				code.javascript(data-trim).
+					let a = 1;
+					let b = 3;
+
+					[a, b] = [b, a];
+					console.log(a); // 3
+					console.log(b); // 1
+	//
+	section
+		h3 For of
+		pre
+			code.javascript(data-trim).
+				for (variable of iterable) {
+				  statement
+				}
+		pre.fragment
+			code.javascript(data-trim).
+				const payments = ['Mercado Pago', 'Visa', 'Contra entrega'];
+				
+				for (const payment of payments) {
+				  console.log(payment);
+				}
+	section
+		h3 For of + destructuring
+		pre.fragment
+			code.javascript(data-trim).
+				const products = [{
+					name: 'TV Sony 4K',
+					skuId: '223',
+				}, {
+					name: 'Xperia Z4 Tablet',
+					skuId: '293,',
+				},{
+					name: 'Cargador USB portátil',
+					skuId: '588',
+				}];
+
+				for (const { name } of products) {
+				  console.log(name);
+				}
+	section
+		p ya se pueden ir al fulbo
+		img(src="img/futbol.gif")

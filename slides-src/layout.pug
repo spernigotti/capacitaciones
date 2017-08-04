@@ -1,0 +1,29 @@
+-
+	var revealFolder = '../slides-src/reveal/'
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Programación funcional en javascript e introducción a es6
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		link(rel="stylesheet" href=`${revealFolder}css/reveal.css`)
+		link(rel="stylesheet" href=`${revealFolder}css/theme/league.css`)
+
+		link(rel="stylesheet" href=`${revealFolder}lib/css/zenburn.css`)
+		block head
+	body
+		.reveal
+			.slides
+				block slides
+
+
+		script(src=`${revealFolder}lib/js/head.min.js`)
+		script(src=`${revealFolder}js/reveal.js`)
+		script.
+			Reveal.initialize({
+				history: true,
+				transition: "none",
+				dependencies: [
+					{ src: '#{revealFolder}plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});

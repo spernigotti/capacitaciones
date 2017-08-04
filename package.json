@@ -1,0 +1,26 @@
+{
+  "name": "capacitaciones",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spernigotti/capacitaciones.git"
+  },
+  "author": "Santiago Pernigotti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spernigotti/capacitaciones/issues"
+  },
+  "homepage": "https://github.com/spernigotti/capacitaciones#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "inquirer": "^3.2.1"
+  },
+  "devDependencies": {
+    "pug": "^2.0.0-rc.3"
+  }
+}
