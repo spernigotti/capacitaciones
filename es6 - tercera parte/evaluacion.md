@@ -13,7 +13,7 @@ const product = {
 ```
 &nbsp;
 
-2.Definir la funcion *formatProduct* que recibe como parámetro un objeto que contiene las propiedades *name*, *brand* y *skuId*. La función debe devolver 
+2. Definir la funcion *formatProduct* que recibe como parámetro un objeto que contiene las propiedades *name*, *brand* y *skuId*. La función debe devolver 
 un objeto con dichas propiedades pero la propiedad *skuId* debe ser redefinida como *id*.  
 Definir el valor por defecto para las propiedades mencinadas como un *string* vacío. En el caso de que no se pase ningún parámetro a la función, igualmente se deben definir los valores por defecto.
 
@@ -35,7 +35,7 @@ formatProduct();
 ```
 &nbsp;
 
-3.Definir la funcion *formatProductArray* que recibe como parámetro un array que contiene los valores *name*, *brand* y *id* en los primeros tres elementos. Debe retornar un objeto con el mismo formato que el anterior ejercicio.  
+3. Definir la funcion *formatProductArray* que recibe como parámetro un array que contiene los valores *name*, *brand* y *id* en los primeros tres elementos. Debe retornar un objeto con el mismo formato que el anterior ejercicio.  
 Definir el valor por defecto para los tres elementos como un *string* vacío. En el caso de que no se pase ningún parámetro a la función igualmente se deben definir los valores por defecto.
 
 ```javascript
