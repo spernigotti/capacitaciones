@@ -24,10 +24,10 @@ const formatProduct = () => ();
 
 #### Ejemplo
 ```javascript
-formatProduct({ name = 'TV Sony 4K', brand = 'Sony', skuId: id = '223' });
+formatProduct({ name: 'TV Sony 4K', brand: 'Sony', skuId = '223' });
 // { name: 'TV Sony 4K', brand: 'Sony', id: '223' }
 
-formatProduct({ name = 'TV Sony 4K' });
+formatProduct({ name: 'TV Sony 4K' });
 // { name: 'TV Sony 4K', brand: '', id: '' }
 
 formatProduct();
