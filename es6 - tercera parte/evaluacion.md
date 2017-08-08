@@ -82,21 +82,21 @@ const product1 = {
 	name: 'TV Sony 4K',
 	skuId: '223',
 	quantity: 1,
-  hasStock: true,
-  price: 8000
+	hasStock: true,
+	price: 8000
 };
 const product2 = {
 	name: 'Xperia Z4 Tablet',
 	skuId: '293',
-  quantity: 2,
-  hasStock: false,
+	quantity: 2,
+	hasStock: false,
 	price: 3000
 };
 const product3 = {
 	name: 'Cargador USB portátil',
 	brand: 'Sony',
 	quantity: 3,
-  price: 1000
+	price: 1000
 };
 const [totalQuantity, totalValue] = getTotals(product1, product2, product3);
 console.log(totalQuantity, totalValue); // [4, 9000]
