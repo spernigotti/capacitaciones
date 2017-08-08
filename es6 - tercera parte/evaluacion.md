@@ -78,7 +78,10 @@ const product = {
 
 5. (Desafio opcional) Definir la función *getTotals* que recibe una cantidad de productos indefinida de tipo *object* y retorna la suma de las propiedades *quantity* y *total* en un *array* (*[totalQuantity, totalValue]*). 
 Debe acumularse sólo los productos que tengan stock considerando la pripiedad *hasStock*. Los productos que no tengan definida la propiedad *hasStock* deben contemplarse para realizar las sumas.
-&nbsp;
+
+```javascript
+const getTotals = (product1, product2,  ,productN) => {};
+```
 
 #### Ejemplo
 ```javascript
