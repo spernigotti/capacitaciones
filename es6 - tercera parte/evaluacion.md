@@ -11,6 +11,7 @@ const product = {
 	quantity: 1
 };
 ```
+&nbsp;
 
 2.Definir la funcion *formatProduct* que recibe como parámetro un objeto que contiene las propiedades *name*, *brand* y *skuId*. La función debe devolver 
 un objeto con dichas propiedades pero la propiedad *skuId* debe ser redefinida como *id*.  
@@ -32,7 +33,7 @@ formatProduct({ name = 'TV Sony 4K' });
 formatProduct();
 // { name: '', brand: '', id: '' }
 ```
-
+&nbsp;
 
 3.Definir la funcion *formatProductArray* que recibe como parámetro un array que contiene los valores *name*, *brand* y *id* en los primeros tres elementos. Debe retornar un objeto con el mismo formato que el anterior ejercicio.  
 Definir el valor por defecto para los tres elementos como un *string* vacío. En el caso de que no se pase ningún parámetro a la función igualmente se deben definir los valores por defecto.
@@ -52,6 +53,8 @@ formatProductArray(['TV Sony 4K']);
 formatProductArray();
 // { name: '', brand: '', id: '' }
 ```
+&nbsp;
+
 4. Dado el objeto *product* obtener y definir como variables las siguientes propiedades:
 *productName, productId, brand, skuId, skuName y sellerId*
 
@@ -71,10 +74,11 @@ const product = {
 	}]
 };
 ```
+&nbsp;
 
 5. (Desafio opcional) Definir la función *getTotals* que recibe una cantidad de productos indefinida de tipo *object* y retorna la suma de las propiedades *quantity* y *total* en un *array* (*[totalQuantity, totalValue]*). 
 Debe acumularse sólo los productos que tengan stock considerando la pripiedad *hasStock*. Los productos que no tengan definida la propiedad *hasStock* deben contemplarse para realizar las sumas.
-
+&nbsp;
 
 #### Ejemplo
 ```javascript
@@ -98,6 +102,7 @@ const product3 = {
 	quantity: 3,
 	price: 1000
 };
+
 const [totalQuantity, totalValue] = getTotals(product1, product2, product3);
 console.log(totalQuantity, totalValue); // [4, 9000]
 ```
