@@ -107,5 +107,5 @@ const product3 = {
 };
 
 const [totalQuantity, totalValue] = getTotals(product1, product2, product3);
-console.log(totalQuantity, totalValue); // [4, 9000]
+console.log(totalQuantity, totalValue); // 4 9000
 ```
