@@ -1,4 +1,6 @@
 extends ../slides-src/layout.pug
+block variables
+	- title = 'ES6 - Tercera Parte'
 block slides
 	section
 		h2 ES6 - Tercera Parte
@@ -124,7 +126,6 @@ block slides
 					[a, b] = [b, a];
 					console.log(a); // 3
 					console.log(b); // 1
-	//
 	section
 		h3 For of
 		pre
