@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capacitación Node</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides-src/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../slides-src/reveal/css/theme/league.css">
+    <link rel="stylesheet" href="../slides-src/reveal/lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section><img src="img/logo.svg" style="background:none;border:none;box-shadow:none;"></section>
+        <section>
+          <ul>
+            <p><strong>Node.js</strong>es un entorno en tiempo de ejecución multiplataforma para ejecutar código javascript del lado del servidor.</p>
+          </ul>
+        </section>
+        <section>
+          <h3>Instalación</h3>
+          <h4>En Ubuntu: </h4>
+          <pre><code class="bash" data-trim>sudo apt-get install nodejs</code></pre><br>
+          <h4>En Windows: </h4><a href="https://nodejs.org/es/download/">https://nodejs.org/es/download/</a>
+        </section>
+        <section>
+          <h3>Node Modules</h3><img src="img/modules.jpg">
+        </section>
+        <section>
+          <h3>Node Modules</h3>
+          <ul>
+            <li>Módulos nativos (core)</li>
+            <li>Módulos de terceros</li>
+            <li>Módulos propios</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Modúlos nativos</h3>
+          <pre><code class="javascript" data-trim>const path = require('path');
+
+path.extname('index.html');
+// .html
+
+path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+// /foo/bar/baz/asdf</code></pre>
+        </section>
+        <section>
+          <h3>Modúlos de terceros</h3>
+          <pre><code class="javascript" data-trim>const _ = require('lodash');
+
+_.chunk(['a', 'b', 'c', 'd'], 2);
+// [['a', 'b'], ['c', 'd']]</code></pre>
+        </section>
+        <section>
+          <h2>Node Package Manager (NPM)</h2>
+          <pre class="fragment"><code class="bash" data-trim>npm init		</code></pre>
+        </section>
+        <section>
+          <h2>Instalación de paquetes</h2>
+          <h4>Dependencias productivas</h4>
+          <pre><code class="bash" data-trim>npm install --save &lt;package_name&gt;</code></pre>
+          <pre><code class="bash" data-trim>npm install -S &lt;package_name&gt;</code></pre>
+          <h4>Dependencias de desarrollo</h4>
+          <pre><code class="bash" data-trim>npm install --save-dev &lt;package_name&gt;</code></pre>
+          <pre><code class="bash" data-trim>npm install -D &lt;package_name&gt;</code></pre>
+          <h4>Global Package</h4>
+          <pre><code class="bash" data-trim>npm install --global &lt;package_name&gt;</code></pre>
+          <pre><code class="bash" data-trim>npm install -g &lt;package_name&gt;</code></pre>
+        </section>
+        <section>
+          <h3>Package.json</h3>
+          <ul>
+            <li>Guarda las dependencias del proyecto</li>
+            <li>Se pueden definir npm scripts</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Modúlos propios</h3>
+          <pre><code class="javascript" data-trim>// Utils.js
+module.exports = {
+	formatPrice(number, currency, decimals) {
+		return `${currency}  ${number.toFixed(decimals);}`;
+	}
+}</code></pre>
+          <pre><code class="javascript" data-trim>// index.js
+const Utils = require('./Utils');
+Utils.formatPrice(233);
+// $223.00</code></pre>
+        </section>
+        <section>
+          <h3>ES6</h3>
+          <pre><code class="javascript" data-trim>// Utils.js
+const Utils = {
+	formatPrice(number, currency, decimals) {
+		return `${currency}  ${number.toFixed(decimals);}`;
+	}
+};
+export default Utils;</code></pre>
+          <pre><code class="javascript" data-trim>// index.js
+import Utils from './Utils';
+Utils.formatPrice(233);
+// $223.00</code></pre>
+        </section>
+      </div>
+    </div>
+    <script src="../slides-src/reveal/lib/js/head.min.js"></script>
+    <script src="../slides-src/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: '../slides-src/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>
