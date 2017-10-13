@@ -7,7 +7,7 @@ block slides
 	section
 		ul
 			p
-				strong Node.js 
+				strong Node.js
 				| es un entorno en tiempo de ejecución multiplataforma para ejecutar código javascript del lado del servidor.
 	section
 		h3 Instalación
@@ -28,7 +28,7 @@ block slides
 			li Módulos de terceros
 			li Módulos propios
 	section
-		h3 Modúlo nativo
+		h3 Modúlos nativos
 		pre
 			code.javascript(data-trim).
 				const path = require('path');
@@ -52,21 +52,22 @@ block slides
 			code.bash(data-trim).
 				npm init		
 	section
-		h2 Instalación de módulos
-		- command = "npm install <package_name>"
-		- command2 = "npm i <package_name>"
+		h2 Instalación de paquetes
+		h4 Dependencias productivas
+		- command = "npm install --save <package_name>"
+		- command2 = "npm install -S <package_name>"
 		pre
 			code.bash(data-trim)= command
 		pre
 			code.bash(data-trim)= command2
-		h3 devDependencies
+		h4 Dependencias de desarrollo
 		- command = "npm install --save-dev <package_name>"
 		- command2 = "npm install -D <package_name>"
 		pre
 			code.bash(data-trim)= command
 		pre
 			code.bash(data-trim)= command2
-		h3 Global Package
+		h4 Global Package
 		- commandGlobal = "npm install --global <package_name>"
 		- commandGlobal2 = "npm install -g <package_name>"
 		pre
@@ -82,3 +83,32 @@ block slides
 		h3 Modúlos propios
 		pre
 			code.javascript(data-trim).
+				// Utils.js
+				module.exports = {
+					formatPrice(number, currency, decimals) {
+						return `${currency}  ${number.toFixed(decimals);}`;
+					}
+				}
+		pre
+			code.javascript(data-trim).
+				// index.js
+				const Utils = require('./Utils');
+				Utils.formatPrice(233);
+				// $223.00
+	section
+		h3 ES6
+		pre
+			code.javascript(data-trim).
+				// Utils.js
+				const Utils = {
+					formatPrice(number, currency, decimals) {
+						return `${currency}  ${number.toFixed(decimals);}`;
+					}
+				};
+				export default Utils;
+		pre
+			code.javascript(data-trim).
+				// index.js
+				import Utils from './Utils';
+				Utils.formatPrice(233);
+				// $223.00
