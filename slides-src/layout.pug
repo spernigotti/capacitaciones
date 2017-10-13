@@ -2,6 +2,11 @@
 	var revealFolder = '../slides-src/reveal/'
 	var title = 'Capacitación'
 block variables
+
+mixin svg(name)
+	img(src=`img/${name}.svg` style={ width: '40%', background: 'none', border: 'none', 'box-shadow': 'none' })&attributes(attributes)
+mixin img(name)
+	img(src=`img/${name}`)&attributes(attributes)
 doctype html
 html
 	head

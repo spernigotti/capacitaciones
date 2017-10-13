@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capacitación React - Primera Parte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides-src/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../slides-src/reveal/css/theme/league.css">
+    <link rel="stylesheet" href="../slides-src/reveal/lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <style>
+          .reveal .slide-background {
+          	background-image: url("https://d33wubrfki0l68.cloudfront.net/baf3e4b6e2dd4f4793cd6e2b4e1d498183d8adb4/85dd1/large-logo.svg");
+          	background-size: 50% auto;
+          	background-position: 120% 0%;
+          }
+        </style>
+        <section><img src="img/react.svg" style="width:40%;background:none;border:none;box-shadow:none;"/>
+          <h1 style="color:#61dafb;text-shadow:none;">React</h1>
+        </section>
+        <section>
+          <p>pera, vamos a repasar un poco...</p>
+        </section>
+        <section>
+          <h3>ES6</h3>
+          <ul>
+            <li>arrow functions</li>
+            <li>const, let</li>
+            <li>destructuring</li>
+            <li>spread operator</li>
+            <li>classes</li>
+            <li>template literal</li>
+          </ul>
+        </section>
+        <section>
+          <h3>ES6 Modules</h3>
+          <pre><code class="javascript" data-trim>//------ lib.js ------
+export const sqrt = Math.sqrt;
+export function square(x) {
+    return x * x;
+}
+export function diag(x, y) {
+    return sqrt(square(x) + square(y));
+}
+
+//------ main.js ------
+import * as lib from 'lib';
+import { square, diag } from 'lib';
+console.log(square(11)); // 121
+console.log(diag(4, 3)); // 5
+console.log(lib.square(11)); // 121</code></pre>
+        </section>
+        <section>
+          <h3>ES6 Modules</h3>
+          <pre><code class="javascript" data-trim>//------ myFunc.js ------
+export default function () { ... };
+
+//------ main1.js ------
+import myFunc from 'myFunc';
+myFunc();</code></pre>
+          <pre><code class="javascript" data-trim>//------ MyClass.js ------
+export default class { ... };
+
+//------ main2.js ------
+import MyClass from 'MyClass';
+let inst = new MyClass();</code></pre>
+        </section>
+        <section>
+          <h3>Programación Funcional</h3>
+          <ul>
+            <li>Eliminación de efectos secundarios</li>
+            <li>Funciones Puras</li>
+            <li>Inmutabilidad de los datos</li>
+            <li>Funciones de alto orden</li>
+          </ul>
+        </section>
+        <section>
+          <p>Ahora si vamos con react</p>
+        </section>
+        <section><img src="img/react.svg" style="width:40%;background:none;border:none;box-shadow:none;"/>
+          <h2 style="color:#61dafb;text-shadow:none;">React</h2>
+          <p>A JavaScript library for building user interfaces</p>
+        </section>
+        <section>
+          <p>Sitio Oficial: <a href="https://reactjs.org/">https://reactjs.org/</a></p><br>
+          <h2>¿Quiénes usan react?</h2><img src="img/facebook.svg" style="width:40%;background:none;border:none;box-shadow:none;height:100px;width:auto;margin:0 1.5%;"/><img src="img/instagram.svg" style="width:40%;background:none;border:none;box-shadow:none;height:100px;width:auto;margin:0 1.5%;"/><img src="img/netflix.svg" style="width:40%;background:none;border:none;box-shadow:none;height:100px;width:auto;margin:0 1.5%;"/><img src="img/whatsapp.svg" style="width:40%;background:none;border:none;box-shadow:none;height:100px;width:auto;margin:0 1.5%;"/><img src="img/atlassian.svg" style="width:40%;background:none;border:none;box-shadow:none;height:100px;width:auto;margin:0 1.5%;"/>
+        </section>
+        <section>
+          <h3>Fortalezas de React</h3>
+          <ul>
+            <li>Declarativo</li>
+            <li class="fragment">Basado en componentes</li>
+            <li class="fragment">Eficiente en el renderizado</li>
+            <li class="fragment">Sintaxis sencilla	</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Instalación</h2><img src="img/webpack.jpg" width="500px"/>
+        </section>
+        <section>
+          <h2>Instalación</h2>
+          <blockquote class="twitter-tweet" data-lang="es" width="800px" height="600px">
+            <p lang="en" dir="ltr">Marc was almost ready to implement his "hello world" React app <a href="https://t.co/ptdg4yteF1">pic.twitter.com/ptdg4yteF1</a></p>— Thomas Fuchs (@thomasfuchs) <a href="https://twitter.com/thomasfuchs/status/708675139253174273?ref_src=twsrc%5Etfw">12 de marzo de 2016</a>
+          </blockquote>
+          <script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </section>
+        <section>
+          <h2>Create React app</h2><br>
+          <pre><code class="bash" data-trim>sudo npm install -g create-react-app</code></pre><br>
+          <pre><code class="bash" data-trim>create-react-app hello-fizzmod		</code></pre>
+        </section>
+        <section>
+          <h2>Recomendaciones</h2>
+          <ul>
+            <li>Instalar la sintaxis de es6 y jsx en el editor de texto que usen
+              <p>Sublime text: Paquete <a href="https://github.com/babel/babel-sublime#installation">babel</a></p>
+              <p>Otros: <a href="https://babeljs.io/docs/editors">https://babeljs.io/docs/editors</a></p>
+            </li><br>
+            <li>Instalar <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi">React Developer Tools</a></li>
+          </ul>
+        </section>
+        <section>
+          <h3>React elements</h3>
+          <pre><code class="javascript" data-trim>import React from 'react';
+import ReactDOM from 'react-dom';
+
+const element = React.createElement('h1', null, 'Hello, world!');</code></pre><br>
+          <h3>Renderizando un elemento dentro del DOM</h3>
+          <pre><code class="javascript" data-trim>ReactDOM.render(element, document.getElementById('root'));</code></pre>
+        </section>
+        <section>
+          <h2>JSX</h2>
+          <pre><code class="javascript" data-trim>const element = <h1>Hello, world!</h1>;</code></pre>
+        </section>
+        <section>
+          <h3>Atributos en JSX</h3>
+          <pre><code class="javascript" data-trim>const element = &lt;div className=&quot;avatar-img&quot; tabIndex=&quot;0&quot;&gt;&lt;/div&gt;;</code></pre><br>
+          <pre><code class="javascript" data-trim>const element = &lt;img src={user.avatarUrl} /&gt;;</code></pre>
+        </section>
+        <section>
+          <h3>Etiquetas JSX pueden contener hijos</h3>
+          <pre><code class="javascript" data-trim>const element = (
+  <div>
+    <h1>Hello!</h1>
+    <h2>Good to see you here.</h2>
+  </div>
+);</code></pre>
+        </section>
+        <section>
+          <h3>Componentes</h3>
+          <ul>
+            <li>Functional Component
+              <pre><code class="javascript" data-trim>function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}</code></pre>
+            </li><br>
+            <li>Class Based Component
+              <pre><code class="javascript" data-trim>class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Renderización de componentes</h3>
+          <pre><code class="javascript" data-trim>
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);</code></pre>
+        </section>
+        <section>
+          <h3>Composición de componentes</h3>
+          <pre><code class="javascript" data-trim>
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome name=&quot;Sara&quot; /&gt;
+      &lt;Welcome name=&quot;Cahal&quot; /&gt;
+      &lt;Welcome name=&quot;Edite&quot; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementById('root')
+);</code></pre>
+        </section>
+      </div>
+    </div>
+    <script src="../slides-src/reveal/lib/js/head.min.js"></script>
+    <script src="../slides-src/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: '../slides-src/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+extends ../slides-src/layout.pug
+block variables
+	- title = 'Capacitación React - Primera Parte'
+	- reactColor = '#61dafb'
+	- sectionStyle = {}
+block slides
+	style.
+		.reveal .slide-background {
+			background-image: url("https://d33wubrfki0l68.cloudfront.net/baf3e4b6e2dd4f4793cd6e2b4e1d498183d8adb4/85dd1/large-logo.svg");
+			background-size: 50% auto;
+			background-position: 120% 0%;
+		}
+	section
+		+svg("react") style={ width: '40%', background: 'none', border: 'none', 'box-shadow': 'none' })
+		h1(style={ color: reactColor, 'text-shadow': 'none'}) React
+	section(style=sectionStyle)
+		p pera, vamos a repasar un poco...
+	section(style=sectionStyle)
+		h3 ES6
+		ul
+			li arrow functions
+			li const, let
+			li destructuring
+			li spread operator
+			li classes
+			li template literal
+	section(style=sectionStyle)
+		h3 ES6 Modules
+		pre
+			code.javascript(data-trim).
+				//------ lib.js ------
+				export const sqrt = Math.sqrt;
+				export function square(x) {
+				    return x * x;
+				}
+				export function diag(x, y) {
+				    return sqrt(square(x) + square(y));
+				}
+
+				//------ main.js ------
+				import * as lib from 'lib';
+				import { square, diag } from 'lib';
+				console.log(square(11)); // 121
+				console.log(diag(4, 3)); // 5
+				console.log(lib.square(11)); // 121
+	section(style=sectionStyle)
+		h3 ES6 Modules
+		pre
+			code.javascript(data-trim).
+				//------ myFunc.js ------
+				export default function () { ... };
+
+				//------ main1.js ------
+				import myFunc from 'myFunc';
+				myFunc();
+		pre
+			code.javascript(data-trim).
+				//------ MyClass.js ------
+				export default class { ... };
+
+				//------ main2.js ------
+				import MyClass from 'MyClass';
+				let inst = new MyClass();
+	section(style=sectionStyle)
+		h3 Programación Funcional
+		ul
+			li Eliminación de efectos secundarios
+			li Funciones Puras
+			li Inmutabilidad de los datos
+			li Funciones de alto orden
+	section
+		p Ahora si vamos con react
+	section
+		+svg("react")
+		h2(style={ color: reactColor, 'text-shadow': 'none'}) React
+		p A JavaScript library for building user interfaces
+	section
+
+		p Sitio Oficial: 
+			a(href="https://reactjs.org/") https://reactjs.org/
+		br
+		h2 ¿Quiénes usan react?
+		- svgStyle= {height: "100px", width: "auto", margin: '0 1.5%'}
+		+svg('facebook')(style=svgStyle)
+		+svg('instagram')(style=svgStyle)
+		+svg('netflix')(style=svgStyle)
+		+svg('whatsapp')(style=svgStyle)
+		+svg('atlassian')(style=svgStyle)
+
+	section
+		h3 Fortalezas de React
+		ul
+			li Declarativo
+			li.fragment Basado en componentes
+			li.fragment Eficiente en el renderizado
+			li.fragment Sintaxis sencilla	
+	section
+		h2 Instalación
+		+img('webpack.jpg')(width="500px")
+	section
+		h2 Instalación
+		blockquote.twitter-tweet(data-lang='es' width='800px' height= '600px')
+			p(lang='en', dir='ltr')
+				| Marc was almost ready to implement his "hello world" React app 
+				a(href='https://t.co/ptdg4yteF1') pic.twitter.com/ptdg4yteF1
+			| — Thomas Fuchs (@thomasfuchs) 
+			a(href='https://twitter.com/thomasfuchs/status/708675139253174273?ref_src=twsrc%5Etfw') 12 de marzo de 2016
+		script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
+
+	section
+		h2 Create React app
+		br
+		pre
+			code.bash(data-trim).
+				sudo npm install -g create-react-app
+		br
+		pre
+			code.bash(data-trim).
+				create-react-app hello-fizzmod		
+	section
+		h2 Recomendaciones
+		ul
+			li Instalar la sintaxis de es6 y jsx en el editor de texto que usen
+				p Sublime text: Paquete 
+					a(href="https://github.com/babel/babel-sublime#installation") babel
+				p Otros: 
+					a(href="https://babeljs.io/docs/editors") https://babeljs.io/docs/editors
+			br
+			li Instalar 
+				a(href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi") React Developer Tools
+	section
+		h3 React elements
+		pre
+			code.javascript(data-trim).
+				import React from 'react';
+				import ReactDOM from 'react-dom';
+
+				const element = React.createElement('h1', null, 'Hello, world!');
+		br
+		h3 Renderizando un elemento dentro del DOM
+		pre
+			code.javascript(data-trim).
+				ReactDOM.render(element, document.getElementById('root'));
+	section
+		h2 JSX
+		pre
+			code.javascript(data-trim).
+				const element = <h1>Hello, world!</h1>;
+	section
+		h3 Atributos en JSX
+		pre
+			- code = 'const element = <div className="avatar-img" tabIndex="0"></div>;'
+			code.javascript(data-trim)= code
+				
+		br
+		pre
+			- code = 'const element = <img src={user.avatarUrl} />;'
+			code.javascript(data-trim)= code
+	section
+		h3 Etiquetas JSX pueden contener hijos
+
+		pre
+			code.javascript(data-trim).
+				const element = (
+				  <div>
+				    <h1>Hello!</h1>
+				    <h2>Good to see you here.</h2>
+				  </div>
+				);
+	section
+		h3 Componentes
+		ul
+			li Functional Component
+				pre
+					code.javascript(data-trim).
+						function Welcome(props) {
+						  return <h1>Hello, {props.name}</h1>;
+						}
+			br
+			li Class Based Component
+				pre
+					code.javascript(data-trim).
+						class Welcome extends React.Component {
+						  render() {
+						    return <h1>Hello, {this.props.name}</h1>;
+						  }
+						}
+	section
+		h3 Renderización de componentes
+		pre
+			-
+				code = `
+				function Welcome(props) {
+				  return <h1>Hello, {props.name}</h1>;
+				}
+
+				const element = <Welcome name="Sara" />;
+				ReactDOM.render(
+				  element,
+				  document.getElementById('root')
+				);`
+			code.javascript(data-trim)=code
+	section
+		h3 Composición de componentes
+		pre
+			-
+				code = `
+				function Welcome(props) {
+				  return <h1>Hello, {props.name}</h1>;
+				}
+
+				function App() {
+				  return (
+				    <div>
+				      <Welcome name="Sara" />
+				      <Welcome name="Cahal" />
+				      <Welcome name="Edite" />
+				    </div>
+				  );
+				}
+
+				ReactDOM.render(
+				  <App />,
+				  document.getElementById('root')
+				);`
+			code.javascript(data-trim)=code
