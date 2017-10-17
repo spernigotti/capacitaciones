@@ -21,7 +21,7 @@ async function start () {
 	const { coursePath: slidesFolder } = answers;
 
 	const slidesFile = join(__dirname, slidesFolder, 'diapositivas.pug');
-	const slidesFileDist = join(slidesFolder, 'diapositivas.html');
+	const slidesFileDist = join(slidesFolder, 'index.html');
 
 	compileSlides({ slidesFile, slidesFileDist, slidesFolder });
 	watch(slidesFile, () => compileSlides({ slidesFile, slidesFileDist, slidesFolder }));	
@@ -29,7 +29,7 @@ async function start () {
 	browserSync.init({
 		server: {
 			baseDir: join(__dirname, slidesFolder),
-			index: `diapositivas.html`
+			index: `index.html`
 		},
 		serveStatic: [{
 	        route: '/slides-src',
