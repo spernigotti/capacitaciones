@@ -1,6 +1,7 @@
 -
 	var revealFolder = '../slides-src/reveal/'
 	var title = 'Capacitación'
+	var theme = 'league'
 block variables
 
 mixin svg(name)
@@ -14,7 +15,7 @@ html
 		title= title
 		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
 		link(rel="stylesheet" href=`${revealFolder}css/reveal.css`)
-		link(rel="stylesheet" href=`${revealFolder}css/theme/league.css`)
+		link(rel="stylesheet" href=`${revealFolder}css/theme/${theme}.css`)
 
 		link(rel="stylesheet" href=`${revealFolder}lib/css/zenburn.css`)
 		block head

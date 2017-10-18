@@ -1,0 +1,146 @@
+extends ../slides-src/layout.pug
+block variables
+	- title = 'Programación funcional en javascript e introducción a ES6'
+block slides
+	section
+		h2 ES6 - Segunda Parte
+	section
+		h2 ES6 / ES2015
+		ul
+			li
+				a(href="http://es6-features.org/") http://es6-features.org/
+			li
+				a(href="https://babeljs.io/repl/") https://babeljs.io/repl/
+	section
+		h3 Temas vistos hasta ahora
+		ul
+			li let, const
+			li arrow functions
+	section
+		h3 Template Literal
+		pre
+			code.javascript(data-trim).
+				// SINTAXIS
+
+				`string text`
+
+				`string text line 1
+				 string text line 2`
+
+				`string text ${expression} string text`
+	section
+		h3 Template Literal
+		pre
+			code.javascript(data-trim).
+				// ES5
+				var productName = 'TV Led 4K';
+				var discount = '20%';
+
+				console.log('El producto ' + productName + ' tiene un ' + discount + ' de descuento');
+				
+				// ES6
+				const productName = 'TV Led 4K';
+				const discount = '20%';
+
+				console.log(`El producto ${productName} tiene un ${discount} de descuento.`);
+	section
+		h3 Template Literal
+		pre
+			code.javascript(data-trim).
+				// ES5
+				var productHTML = '<div class="product">'+
+				                     '<span class="product-name">' + productName + '</span>'+
+				                  '</div>';
+				// ES6
+				const productHTML = `<div class="product">
+				                        <span class="product-name">${productName}</span>
+				                     </div>`;
+	section
+		h3 Default Parameters
+		pre
+			code.javascript(data-trim).
+				// SINTAXIS
+				function functionName(param1=value1, param2=value2, paramN=valueN) {
+					statements
+				}
+		pre.fragment
+			code.javascript(data-trim).
+				function addTwoNumbers(x=0, y=0) {
+				    return x + y;
+				}
+	section
+		h3 Rest Parameters
+		pre
+			code.javascript(data-trim).
+				// SINTAXIS
+				function functionName(...params) {
+					statements 
+				}
+		pre.fragment
+			code.javascript(data-trim).
+				function sum(...numbers) {
+					return numbers.reduce((acum, number) => acum + number, 0);
+				}
+
+	section
+		h3 Spread Operator
+		pre
+			code.javascript(data-trim).
+				// SINTAXIS
+
+				// sobre llamadas a función
+				myFunction(...iterableObj);
+				
+				// sobre arrays
+				[...iterableObj, 4, 5, 6];
+	section
+		h3 Spread Operator
+		pre
+			code.javascript(data-trim).
+				sum(shippingPrice, taxPrice, ...productPrices);
+		br
+		pre.fragment
+			code.javascript(data-trim).
+				const allProducts = [...products, ...newProducts];
+	section
+		h3 Object Property Shorthand
+		pre
+			code.javascript(data-trim).
+				const product = { id, price };
+
+				// ES5
+				var product = { id: id, price: price };
+	section
+		h3 Computed Property Names
+		pre
+			code.javascript(data-trim).
+				const product = {id, price, [expression]: 'value'};
+
+				// ES5
+				var product = {id: id, price: id};
+				product[expression] = 'value';
+	section
+		h3 Method Properties
+		pre
+			code.javascript(data-trim).
+				const myObject = {
+					method1(a, b) {
+					   statements
+					},
+					method2(x, y) {
+					   statements
+					}
+				};
+
+				// ES5
+				var myObject = {
+					method1: function(a, b) {
+					   statements
+					},
+					method2: function(x, y) {
+					   statements
+					}
+				};
+	section
+		h2 Buen finde!
+		+img('fin.gif')

@@ -2,7 +2,7 @@ const { lstatSync, readdirSync, watch, writeFileSync } = require('fs');
 const { join } = require('path');
 const inquirer = require('inquirer');
 const isDirectory = source => lstatSync(source).isDirectory();
-const isCourse = dir => !['node_modules', 'reveal', '.git', 'ignore'].includes(dir);
+const isCourse = dir => !['node_modules', 'slides-src', '.git', 'ignore'].includes(dir);
 const getDirectories = source =>
   readdirSync(source).map(name => join(source, name)).filter(isDirectory).filter(isCourse);
 const pug = require('pug');
