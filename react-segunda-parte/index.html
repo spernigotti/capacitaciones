@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capacitación React - Segunda Parte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides-src/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../slides-src/reveal/css/theme/league.css">
+    <link rel="stylesheet" href="../slides-src/reveal/lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <style>
+          .reveal .slide-background {
+          	background-image: url("https://d33wubrfki0l68.cloudfront.net/baf3e4b6e2dd4f4793cd6e2b4e1d498183d8adb4/85dd1/large-logo.svg");
+          	background-size: 50% auto;
+          	background-position: 120% 0%;
+          }
+        </style>
+        <section><img src="img/react.svg" style="width:40%;background:none;border:none;box-shadow:none;"/>
+          <h2 style="color:#61dafb;text-shadow:none;">React</h2>
+          <p>Segunda parte</p>
+        </section>
+        <section>
+          <h3>Componentes (repaso)</h3>
+          <pre><code class="javascript" data-trim>
+function Welcome(props) {
+  return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+}
+
+function App() {
+  return (
+    &lt;div&gt;
+      &lt;Welcome name=&quot;Sara&quot; /&gt;
+      &lt;Welcome name=&quot;Cahal&quot; /&gt;
+      &lt;Welcome name=&quot;Edite&quot; /&gt;
+    &lt;/div&gt;
+  );
+}
+
+ReactDOM.render(
+  &lt;App /&gt;,
+  document.getElementById('root')
+);</code></pre>
+        </section>
+        <section>
+          <h3>Actualización de la vista</h3>
+          <p>Hasta ahora lo hacíamos con</p>
+          <pre><code class="javascript" data-trim>
+ReactDOM.render(
+  &lt;SomeComponent /&gt;,
+  document.getElementById('root')
+);</code></pre>
+        </section>
+        <section>
+          <h3>Estados</h3><img src="img/states.gif"/>
+        </section>
+        <section>
+          <h3>Estados - Ideas principales</h3>
+          <ul>
+            <li>Los componentes manejan su propio estado</li>
+            <li>Al actualizar algún estado automáticamente se actualiza la vista</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Estados</h3>
+          <pre><code class="javascript" data-trim>
+class Clock extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			date: new Date()
+		};
+
+		setInterval(this.tick, 1000);
+	}
+	tick = () =&gt; {
+		this.setState({ date: new Date() });
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;h2&gt;Clock component&lt;/h2&gt;
+				&lt;div&gt;Son las {this.state.date.toLocaleTimeString()}&lt;/div&gt;
+			&lt;/div&gt;
+		);
+	}
+}</code></pre>
+        </section>
+        <section>
+          <h3>Estados - A tener en cuenta</h3>
+          <ul>
+            <li>Son la minima representación de los datos "mutables"</li>
+            <li class="fragment">Sólo los componentes basados en clases pueden tener estados</li>
+            <li class="fragment">Siempre aplicar DRY: Don’t Repeat Yourself</li>
+            <li class="fragment">Lá única manera de actualizarlo es a través de setState</li>
+            <li class="fragment">setState puede ser asíncrono</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Flujo de datos</h3><img src="img/data-event-flow.png"/>
+        </section>
+        <section>
+          <h3>Ciclo de vida</h3>
+          <ul>
+            <li>componentDidMount()</li>
+            <li>componentWillUnmount()</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Manejo de eventos</h3>
+          <p>Diferencia entre HTML y React</p>
+          <pre><code class="javascript" data-trim>
+&lt;button onclick=&quot;activateLasers()&quot;&gt;
+  Activate Lasers
+&lt;/button&gt;</code></pre>
+          <pre><code class="javascript" data-trim>
+&lt;button onClick={activateLasers}&gt;
+  Activate Lasers
+&lt;/button&gt;</code></pre>
+        </section>
+        <section>
+          <h3>Renderizado condicional</h3>
+          <p>Podemos renderizar o no elementos dependiendo del estado</p>
+          <h4>Operador &&</h4>
+          <pre><code class="javascript" data-trim>
+&lt;div&gt;
+	{hasDiscounts &amp;&amp;
+	  &lt;div&gt;Oferta!&lt;/div&gt;
+	}
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h3>Renderizado condicional</h3>
+          <h4>Operador ternario</h4>
+          <pre><code class="javascript" data-trim>
+&lt;div&gt;
+  {isLoggedIn ? (
+	  &lt;LogoutButton onClick={this.handleLogoutClick} /&gt;
+    ) : (
+      &lt;LoginButton onClick={this.handleLoginClick} /&gt;
+    )}
+&lt;/div&gt;</code></pre>
+        </section>
+        <section>
+          <h3>Lists and Keys</h3>
+        </section>
+      </div>
+    </div>
+    <script src="../slides-src/reveal/lib/js/head.min.js"></script>
+    <script src="../slides-src/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: '../slides-src/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>

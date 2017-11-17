@@ -1,0 +1,149 @@
+extends ../slides-src/layout.pug
+block variables
+	- title = 'Capacitación React - Segunda Parte'
+	- reactColor = '#61dafb'
+	- sectionStyle = {}
+block slides
+	style.
+		.reveal .slide-background {
+			background-image: url("https://d33wubrfki0l68.cloudfront.net/baf3e4b6e2dd4f4793cd6e2b4e1d498183d8adb4/85dd1/large-logo.svg");
+			background-size: 50% auto;
+			background-position: 120% 0%;
+		}
+	section
+		+svg("react")
+		h2(style={ color: reactColor, 'text-shadow': 'none'}) React
+		p Segunda parte
+	section
+		h3 Componentes (repaso)
+		pre
+			-
+				code = `
+				function Welcome(props) {
+				  return <h1>Hello, {props.name}</h1>;
+				}
+
+				function App() {
+				  return (
+				    <div>
+				      <Welcome name="Sara" />
+				      <Welcome name="Cahal" />
+				      <Welcome name="Edite" />
+				    </div>
+				  );
+				}
+
+				ReactDOM.render(
+				  <App />,
+				  document.getElementById('root')
+				);`
+			code.javascript(data-trim)=code
+	section
+		h3 Actualización de la vista
+		p Hasta ahora lo hacíamos con
+		pre
+			-
+				code = `
+				ReactDOM.render(
+				  <SomeComponent />,
+				  document.getElementById('root')
+				);`
+			code.javascript(data-trim)=code
+	section
+		h3 Estados
+		+img('states.gif')
+	section
+		h3 Estados - Ideas principales
+		ul
+			li Los componentes manejan su propio estado
+			li Al actualizar algún estado automáticamente se actualiza la vista
+	section
+		h3 Estados
+		pre
+			-
+				code = `
+				class Clock extends React.Component {
+					constructor(props) {
+						super(props);
+
+						this.state = {
+							date: new Date()
+						};
+
+						setInterval(this.tick, 1000);
+					}
+					tick = () => {
+						this.setState({ date: new Date() });
+					}
+					render() {
+						return (
+							<div>
+								<h2>Clock component</h2>
+								<div>Son las {this.state.date.toLocaleTimeString()}</div>
+							</div>
+						);
+					}
+				}`
+			code.javascript(data-trim)=code
+	section
+		h3 Estados - A tener en cuenta
+		ul
+			li Son la minima representación de los datos "mutables"
+			li.fragment Sólo los componentes basados en clases pueden tener estados
+			li.fragment Siempre aplicar DRY: Don’t Repeat Yourself
+			li.fragment Lá única manera de actualizarlo es a través de setState
+			li.fragment setState puede ser asíncrono
+	section
+		h3 Flujo de datos
+		+img('data-event-flow.png')
+	section
+		h3 Ciclo de vida
+		ul
+			li componentDidMount()
+			li componentWillUnmount()
+	section
+		h3 Manejo de eventos
+		p Diferencia entre HTML y React
+		pre
+			-
+				codeHTML = `
+				<button onclick="activateLasers()">
+				  Activate Lasers
+				</button>`
+			code.javascript(data-trim)=codeHTML
+		pre
+			-
+				codeReact = `
+				<button onClick={activateLasers}>
+				  Activate Lasers
+				</button>`
+			code.javascript(data-trim)=codeReact
+	section
+		h3 Renderizado condicional
+		p Podemos renderizar o no elementos dependiendo del estado
+		h4 Operador &&
+		pre
+			-
+				codeReact = `
+				<div>
+					{hasDiscounts &&
+					  <div>Oferta!</div>
+					}
+				</div>`
+			code.javascript(data-trim)=codeReact
+	section
+		h3 Renderizado condicional
+		h4 Operador ternario
+		pre
+			-
+				codeReact = `
+				<div>
+				  {isLoggedIn ? (
+					  <LogoutButton onClick={this.handleLogoutClick} />
+				    ) : (
+				      <LoginButton onClick={this.handleLoginClick} />
+				    )}
+				</div>`
+			code.javascript(data-trim)=codeReact
+	section
+		h3 Lists and Keys
