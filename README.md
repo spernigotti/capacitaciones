@@ -26,3 +26,8 @@
 ### React primera parte
 * [Diapositivas](https://spernigotti.github.io/capacitaciones/react-primera-parte/)
 * [Práctica](https://github.com/spernigotti/capacitaciones/tree/master/react-primera-parte/practica)
+
+### React segunda parte
+* [Diapositivas](https://spernigotti.github.io/capacitaciones/react-segunda-parte/)
+* [Práctica](https://github.com/spernigotti/capacitaciones/tree/master/react-segunda-parte/practica)
+* [Evaluación](https://github.com/spernigotti/capacitaciones/tree/master/react-segunda-parte/evaluacion.md)

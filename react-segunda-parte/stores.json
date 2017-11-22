@@ -1,0 +1,49 @@
+[{
+    "name": "Supermercado Honorio Pueyrredón",
+    "address": "Honorio Pueyrredón 652, Caballito",
+    "city": "Ciudad Autonoma de Buenos Aires",
+    "phone": "4901-2017 / 4902-7054",
+    "schedule": "Todos los días de 8 a 20hs."
+}, {
+    "name": "Supermercado Cabildo",
+    "address": "Cabildo 3460",
+    "city": "Ciudad Autonoma de Buenos Aires",
+    "phone": "4519-0463/0080/0085",
+    "schedule": "Todos los días de 9 a 22 hs."
+}, {
+    "name": "Supermercado Nogoyá",
+    "address": "Nogoyá 3240",
+    "city": "Ciudad Autonoma de Buenos Aires",
+    "phone": "4587-6049",
+    "schedule": "Todos los días de 8 a 22 hs."
+}, {
+    "name": "Supermercado Ramón Falcón",
+    "address": "Ramón Falcón 2452",
+    "city": "Ciudad Autonoma de Buenos Aires",
+    "phone": "4611-6229 / 4611-1502",
+    "schedule": "Todos los días de 10 a 22 hs."
+}, {
+    "name": "Córdoba OE",
+    "address": "Colón 6051",
+    "city": "Córdoba",
+    "phone": "(0351) 433-7460 al 66",
+    "schedule": "Todos los días de 8 a 21 hs."
+}, {
+    "name": "Rio Cuarto",
+    "address": "Juan B. Justo 2052 (altura km 6 Ruta A-005)",
+    "city": "Córdoba",
+    "phone": "(0358) 464-2504/2334/2281/0078",
+    "schedule": "Todos los días de 8 a 22 hs."
+}, {
+    "name": "Benegas City",
+    "address": "San Martin Sur 2575 y Laguna del Diamante - Godoy Cruz",
+    "city": "Mendoza",
+    "phone": "(0261) 4391152/4399174/4399175/4398334",
+    "schedule": "Todos los días de 8 a 22 hs. Envío sin cargo en un radio de 40 cuadras del local."
+}, {
+    "name": "Mendoza - Las Heras",
+    "address": "Boulogne Sur Mer s/n y Regalado Olguin, Las Heras - Mendoza ( 5500)",
+    "city": "Mendoza",
+    "phone": "(0261) 444-8833/5959/9022/9077",
+    "schedule": "Todos los días de 8 a 23 hs."
+}]

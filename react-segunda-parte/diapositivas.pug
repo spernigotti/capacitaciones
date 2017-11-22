@@ -146,4 +146,24 @@ block slides
 				</div>`
 			code.javascript(data-trim)=codeReact
 	section
-		h3 Lists and Keys
+		h3 Listas de componentes
+		pre
+			-
+				code = `
+				function NumberList(props) {
+				  const numbers = props.numbers;
+				  const listItems = numbers.map((number, index) =>
+				    <li key={index}>{number}</li>
+				  );
+				  return (
+				    <ul>{listItems}</ul>
+				  );
+				}
+
+				const numbers = [1, 2, 3, 4, 5];
+				ReactDOM.render(
+				  <NumberList numbers={numbers} />,
+				  document.getElementById('root')
+				);`
+			code.javascript(data-trim)=code
+			
