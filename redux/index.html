@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capacitación Redux</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides-src/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../slides-src/reveal/css/theme/moon.css">
+    <link rel="stylesheet" href="../slides-src/reveal/lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div style="background:#fff;"><img src="img/logo.png" style="border:none;box-shadow:none;"/>
+          </div>
+          <p class="fragment">A predictable state container for JavaScript apps.</p>
+        </section>
+        <section>
+          <p>Sitio Oficial: <a href="https://redux.js.org/">https://redux.js.org/</a></p>
+          <p>Fecha de lanzamiento: Junio de 2015</p>
+          <p>Versión actual(estable): 3.7.2</p>
+        </section>
+        <section>
+          <h3>Dan Abramov</h3>
+          <div><img src="img/dan.jpg" width="150"/>
+          </div>
+          <div style="display:flex;">
+            <div>
+              <h3>Librerías</h3>
+              <ul>
+                <li>Redux</li>
+                <li>React Hot Loader</li>
+                <li>Create React App</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Videos</h3>
+              <li><a href="https://www.youtube.com/watch?v=xsSnOQynTHs">Live React: Hot Reloading with Time Travel</a></li>
+              <li><a href="https://egghead.io/series/getting-started-with-redux">Getting Started with Redux  (30 free videos)</a></li>
+              <li><a href="Building React Applications with Idiomatic Redux">Building React Applications with Idiomatic Redux  (27 free videos)</a></li>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Estados</h2><img src="img/estado.gif"/>
+          <div class="fragment">
+            <h3>Sin redux</h3><img src="img/frustracion.gif"/>
+          </div>
+        </section>
+        <section>
+          <h2>App con redux</h2>
+          <p>Estado ordenado</p>
+          <p>Fácil de implementar nuevas funcionalidades</p>
+          <p>Código mantenible</p>
+          <p>Fácil de testear</p>
+        </section>
+        <section>
+          <h2>Los 3 principios</h2>
+          <ul>
+            <li> <b class="fragment">Única fuente de la verdad</b>
+              <p class="fragment">Todo el estado de la aplicación es un objeto</p>
+            </li>
+            <li><b class="fragment">El estado es de solo lectura</b>
+              <p class="fragment">La única manera de cambiar el estado es despachando una acción, un objeto que describe lo que sucedió.</p>
+            </li>
+            <li><b class="fragment">Los cambios se realizan con funciones puras</b>
+              <p class="fragment">Para especificar cómo el estado es transformado por medio de las acciones, se debe definir un reducer.</p>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Acción</h2>
+          <p>Minima representación de los cambios en la aplicación.</p>
+          <pre><code class="js" data-trim="data-trim">
+              {
+                  type: 'DEPOSIT',
+                  value: 10
+              }</code></pre>
+        </section>
+        <section>
+          <h2>Reducer</h2>
+          <p>Función que recibe el estado actual y una acción, y retorna el estado siguiente.</p>
+          <pre><code class="js" data-trim="data-trim">
+              function counter(state = 0, action) {
+                switch (action.type) {
+                case 'DEPOSIT':
+                  return state + action.value;
+                case 'WITHDRAW':
+                  return state - action.value;
+                default:
+                  return state;
+                }
+              }</code></pre>
+        </section>
+        <section>
+          <h2>Store</h2>
+          <p>Une los 3 principios de redux.</p>
+          <p>Contiene el objeto del estado actual.</p>
+          <p>Te permite despachar acciones y suscribirte a los cambios en el estado</p>
+        </section>
+        <section>
+          <h2>Flujo</h2><img src="img/flujo.png" style="width:70%;background-color:#fff;"/>
+        </section>
+        <section>
+          <h2>Flujo</h2><img src="img/flujo.gif" style="width:70%;background-color:#fff;"/>
+        </section>
+        <section>
+          <h3>Instalación</h3>
+          <pre><code class="bash" data-trim="data-trim">npm install --save redux</code></pre>
+        </section>
+      </div>
+    </div>
+    <script src="../slides-src/reveal/lib/js/head.min.js"></script>
+    <script src="../slides-src/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: '../slides-src/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>

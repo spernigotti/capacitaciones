@@ -1,0 +1,95 @@
+extends ../slides-src/layout.pug
+block variables
+	- title = 'Capacitación Redux'
+	- theme = 'moon'
+block slides
+	section
+		div(style={background: '#fff'})
+			+img('logo.png')(style={border: 'none', 'box-shadow': 'none'})
+		p.fragment A predictable state container for JavaScript apps.
+	section
+		p Sitio Oficial: 
+			a(href="https://redux.js.org/") https://redux.js.org/
+		p Fecha de lanzamiento: Junio de 2015
+		p Versión actual(estable): 3.7.2
+	section
+		h3 Dan Abramov
+		div
+			+img('dan.jpg')(width="150")
+		div(style={display: 'flex'})
+			div
+				h3 Librerías
+				ul
+					li Redux
+					li React Hot Loader
+					li Create React App
+			div
+				h3 Videos
+				li
+					a(href="https://www.youtube.com/watch?v=xsSnOQynTHs") Live React: Hot Reloading with Time Travel
+				li
+					a(href="https://egghead.io/series/getting-started-with-redux") Getting Started with Redux  (30 free videos)
+				li
+					a(href="Building React Applications with Idiomatic Redux") Building React Applications with Idiomatic Redux  (27 free videos)
+
+	section
+		h2 Estados
+		+img("estado.gif")
+		div.fragment
+			h3 Sin redux
+			+img("frustracion.gif")
+	section
+		h2 App con redux
+		p Estado ordenado
+		p Fácil de implementar nuevas funcionalidades
+		p Código mantenible
+		p Fácil de testear
+	section
+		h2 Los 3 principios
+		ul
+			li 
+				b.fragment Única fuente de la verdad
+				p.fragment Todo el estado de la aplicación es un objeto
+			li
+				b.fragment El estado es de solo lectura
+				p.fragment La única manera de cambiar el estado es despachando una acción, un objeto que describe lo que sucedió.
+			li
+				b.fragment Los cambios se realizan con funciones puras
+				p.fragment Para especificar cómo el estado es transformado por medio de las acciones, se debe definir un reducer.
+	section
+		h2 Acción
+		p Minima representación de los cambios en la aplicación.
+		+code("js").
+			{
+			    type: 'DEPOSIT',
+			    value: 10
+			}
+	section
+		h2 Reducer
+		p Función que recibe el estado actual y una acción, y retorna el estado siguiente.
+		+code("js").
+			function counter(state = 0, action) {
+			  switch (action.type) {
+			  case 'DEPOSIT':
+			    return state + action.value;
+			  case 'WITHDRAW':
+			    return state - action.value;
+			  default:
+			    return state;
+			  }
+			}
+	section
+		h2 Store
+		p Une los 3 principios de redux.
+		p Contiene el objeto del estado actual.
+		p Te permite despachar acciones y suscribirte a los cambios en el estado
+	section
+		h2 Flujo
+		+img("flujo.png")(style={width: '70%', 'background-color': '#fff'})
+	section
+		h2 Flujo
+		+img("flujo.gif")(style={width: '70%', 'background-color': '#fff'})
+	section
+		h3 Instalación
+		+code("bash").
+			npm install --save redux
