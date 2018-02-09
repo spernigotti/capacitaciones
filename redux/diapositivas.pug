@@ -66,7 +66,7 @@ block slides
 			}
 	section
 		h2 Reducer
-		p Función que recibe el estado actual y una acción, y retorna el estado siguiente.
+		p Función pura que recibe el estado actual y una acción, y retorna el estado siguiente.
 		+code("js").
 			function counter(state = 0, action) {
 			  switch (action.type) {
@@ -93,3 +93,93 @@ block slides
 		h3 Instalación
 		+code("bash").
 			npm install --save redux
+	section
+		h3 Uso
+		+code("js").
+			import { createStore } from 'redux';
+
+			const store = createStore(myReducer);
+			store.subscribe(renderFunction);
+
+			store.dispatch(someAction);
+	section
+		h3 Action Creators
+		p.fragment Funciones que crean acciones
+		+codeFragment("js").
+			function deposit(value) {
+			  return {
+			    type: 'DEPOSIT',
+			    value
+			  };
+			}
+		+codeFragment("js").
+			  // dispatching an action
+			  store.dispatch(deposit(10));
+	section
+		h3 Multiples reducers
+		+codeFragment("js").
+			import { createStore, combineReducers } from 'redux';
+			import { minicart, modal } from './reducers';
+
+			const rootReducer = combineReducers({
+			  minicart,
+			  modal
+			});
+			const store = createStore(rootReducer);
+			// console.log(store.getState());
+			/*
+			{
+			  minicart: { total: 0 },
+			  modal : { open: false }
+			}
+			*/
+	section
+		h3 Redux + React
+		h4 Instalación
+		+code("bash").
+			npm install --save react-redux
+	section
+		h3 Presentational Component
+		p Sólo define la apariencia. No le interesa el comportamiento.
+		div.fragment
+			h3 Container Component
+			p Conecta al componente presentacional con el redux store, le especifica los datos y el comportamiento que necesita.
+	section
+		h3 connect function
+		+code("js").
+			import { connect } from 'react-redux';
+
+			const mapStateToProps = (state) => ({
+			  someProp: state.someProperty
+			});
+			const mapDispatchToProps = (dispatch) => ({
+			  onClick: () => dispatch(someAction)
+			});
+
+			const ContainerComponent = connect(
+			  mapStateToProps,
+			  mapDispatchToProps
+			)(PresentationComponent);
+	section
+		h3 Provider
+		p Hace que el store de redux esté disponible para el componente creado por connect()
+		- 
+			mycode = `
+				import React from 'react';
+				import ReactDOM from 'react-dom';
+				import { createStore } from 'redux';
+				import { Provider } from 'react-redux';
+				
+				const store = createStore(someReducer);
+
+				ReactDOM.render(
+				  <Provider store={store}>
+				    <App />
+				  </Provider>,
+				  document.getElementById('root')
+				);
+			`;
+		+code("js").
+			#{mycode}
+	section
+		+img("flujo-side-effects.gif")(style={width: '70%', 'background-color': '#fff'})

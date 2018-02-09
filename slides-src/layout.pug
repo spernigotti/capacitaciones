@@ -9,7 +9,11 @@ mixin svg(name)
 mixin img(name)
 	img(src=`img/${name}`)&attributes(attributes)
 mixin code(language)
-	pre
+	pre&attributes(attributes)
+		code(data-trim, class=language)
+			block
+mixin codeFragment(language)
+	pre.fragment
 		code(data-trim, class=language)
 			block
 
