@@ -31,3 +31,7 @@
 * [Diapositivas](https://spernigotti.github.io/capacitaciones/react-segunda-parte/)
 * [Práctica](https://github.com/spernigotti/capacitaciones/tree/master/react-segunda-parte/practica)
 * [Evaluación](https://github.com/spernigotti/capacitaciones/tree/master/react-segunda-parte/evaluacion.md)
+
+### Redux
+* [Diapositivas](https://spernigotti.github.io/capacitaciones/redux/)
+* [Práctica](https://github.com/spernigotti/capacitaciones/tree/master/redux/practica)
