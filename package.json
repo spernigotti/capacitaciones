@@ -21,7 +21,7 @@
     "babel-loader": "^7.1.1",
     "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.23.6",
-    "inquirer": "^3.3.0"
+    "inquirer": "^5.2.0"
   },
   "devDependencies": {
     "pug": "^2.0.3"
