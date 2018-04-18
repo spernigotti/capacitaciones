@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Capacitación de Git</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides-src/reveal/css/reveal.css">
+    <link rel="stylesheet" href="../slides-src/reveal/css/theme/moon.css">
+    <link href="https://git-scm.com/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="../slides-src/reveal/lib/css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <div style="background:#fff;"><img src="img/logo.svg" style="border:none;box-shadow:none;"/>
+          </div>
+        </section>
+        <section>
+          <p>Sitio Oficial: <a href="https://git-scm.com/">https://git-scm.com/</a></p>
+          <p>Versión actual(estable): 2.17.0</p>
+        </section>
+        <section>
+          <h2>Sistema de control de versiones (VCS)</h2>
+        </section>
+        <section>
+          <h3>Centralizado</h3><img src="img/centralized.png" style="max-height:82vh;"/>
+        </section>
+        <section>
+          <h3>Distribuido</h3><img src="img/distributed.png" style="max-height:82vh;"/>
+        </section>
+        <section>
+          <h2>Git</h2>
+          <ul>
+            <li class="fragment">Sistema de control de versiones distribuido</li>
+            <li class="fragment">Manejo de datos por copias instantáneas, no por diferencias</li>
+            <li class="fragment">La mayoría de las operaciones son locales</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Copias por diferencias</h3><img src="img/deltas.png" style="background-color:#fff;border:none;"/>
+        </section>
+        <section>
+          <h3>Copias instantanéas (git)</h3><img src="img/snapshots.png" style="background-color:#fff;border:none;"/>
+        </section>
+        <section>
+          <h3>Git areas</h3><img src="img/git-areas.png"/>
+        </section>
+        <section>
+          <h2>Comandos</h2>
+        </section>
+        <section>
+          <h3>Configuraciones</h3>
+          <pre><code class="bash" data-trim>$ git config --global user.name "Santiago Pernigotti"
+$ git config --global user.email santiago@fizzmod.com
+$ git config --list</code></pre>
+          <p>Las configuraciones globales se guardan en ~/.gitconfig</p>
+        </section>
+        <section>
+          <h3>Inicializando un repositorio</h3>
+          <pre><code class="bash" data-trim>$ git init</code></pre><br>
+          <h3>Clonando un repositorio existente</h3>
+          <pre><code class="bash" data-trim>$ git clone http://fizzmod-server/fizzmod/aurora.git</code></pre>
+        </section>
+        <section>
+          <h3>Ciclo de vida del estado de los archivos</h3><img src="img/lifecycle.png" style="background-color:#fff;border:none;"/>
+        </section>
+        <section>
+          <h4>Rastrear archivos nuevos o Preparar(stage) archivos modificados</h4>
+          <pre><code class="bash" data-trim>$ git add index.js</code></pre><br>
+          <h4>Revisar el estado de los Archivos</h4>
+          <pre><code class="bash" data-trim>$ git status</code></pre>
+        </section>
+        <section>
+          <h4>Ver los cambios no preparados (not staged)</h4>
+          <pre><code class="bash" data-trim>$ git diff</code></pre><br>
+          <h4>Ver los cambios preparados (staged)</h4>
+          <pre><code class="bash" data-trim>$ git diff --staged</code></pre>
+        </section>
+        <section>
+          <h4>Committear los cambios</h4>
+          <pre><code class="bash" data-trim>$ git commit -m "message"</code></pre><br>
+          <h4>Commitear salteando el area de preparación</h4>
+          <pre><code class="bash" data-trim>$ git commit -am "message"</code></pre>
+        </section>
+        <section>
+          <h4>Ver el Historial de los commits</h4>
+          <pre><code class="bash" data-trim>$ git log</code></pre>
+          <!--
+          pre
+          code.bash(data-trim).
+          	$ git log --all --decorate --oneline --graph
+          -->
+        </section>
+        <section>
+          <h4>Rehacer la última confirmación</h4>
+          <pre><code class="bash" data-trim>$ git commit --amend</code></pre>
+        </section>
+      </div>
+    </div>
+    <script src="../slides-src/reveal/lib/js/head.min.js"></script>
+    <script src="../slides-src/reveal/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      	history: true,
+      	transition: "none",
+      	dependencies: [
+      		{ src: '../slides-src/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      	]
+      });
+    </script>
+  </body>
+</html>

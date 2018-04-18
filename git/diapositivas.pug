@@ -1,0 +1,104 @@
+extends ../slides-src/layout.pug
+block variables
+	- title = 'Capacitación de Git'
+	- favicon = 'https://git-scm.com/favicon.ico'
+	- theme = 'moon'
+block slides
+	section
+		div(style={background: '#fff'})
+			+img('logo.svg')(style={border: 'none', 'box-shadow': 'none'})
+	section
+		p Sitio Oficial: 
+			a(href="https://git-scm.com/") https://git-scm.com/
+		p Versión actual(estable): 2.17.0
+	section
+		h2 Sistema de control de versiones (VCS)
+	section
+		h3 Centralizado
+		+img('centralized.png')(style={ 'max-height': '82vh'})
+	section
+		h3 Distribuido
+		+img('distributed.png')(style={ 'max-height': '82vh'})
+	section
+		h2 Git
+		ul
+			li.fragment Sistema de control de versiones distribuido
+			li.fragment Manejo de datos por copias instantáneas, no por diferencias
+			li.fragment La mayoría de las operaciones son locales
+	section
+		h3 Copias por diferencias
+		+img('deltas.png')(style={ 'background-color': '#fff', border: 'none' })
+	section
+		h3 Copias instantanéas (git)
+		+img('snapshots.png')(style={ 'background-color': '#fff', border: 'none' })
+	section
+		h3 Git areas
+		+img('git-areas.png')
+	section
+		h2 Comandos
+	section
+		h3 Configuraciones
+		pre
+			code.bash(data-trim).
+				$ git config --global user.name "Santiago Pernigotti"
+				$ git config --global user.email santiago@fizzmod.com
+				$ git config --list
+		p Las configuraciones globales se guardan en ~/.gitconfig
+	section
+		h3 Inicializando un repositorio
+		pre
+			code.bash(data-trim).
+				$ git init
+		br
+		h3 Clonando un repositorio existente
+		pre
+			code.bash(data-trim).
+				$ git clone http://fizzmod-server/fizzmod/aurora.git
+	section
+		h3 Ciclo de vida del estado de los archivos
+		+img('lifecycle.png')(style={ 'background-color': '#fff', border: 'none' })
+	section
+		h4 Rastrear archivos nuevos o Preparar(stage) archivos modificados
+		pre
+			code.bash(data-trim).
+				$ git add index.js
+		br
+		h4 Revisar el estado de los Archivos
+		pre
+			code.bash(data-trim).
+				$ git status
+	section
+		h4 Ver los cambios no preparados (not staged)
+		pre
+			code.bash(data-trim).
+				$ git diff
+		br
+		h4 Ver los cambios preparados (staged)
+		pre
+			code.bash(data-trim).
+				$ git diff --staged
+	section
+		h4 Committear los cambios
+		pre
+			code.bash(data-trim).
+				$ git commit -m "message"
+		br
+		h4 Commitear salteando el area de preparación
+		pre
+			code.bash(data-trim).
+				$ git commit -am "message"
+	section
+		h4 Ver el Historial de los commits
+		pre
+			code.bash(data-trim).
+				$ git log
+		//
+			pre
+			code.bash(data-trim).
+				$ git log --all --decorate --oneline --graph
+	section
+		h4 Rehacer la última confirmación
+		pre
+			code.bash(data-trim).
+				$ git commit --amend
+		
