@@ -15,10 +15,10 @@ block slides
 		h2 Sistema de control de versiones (VCS)
 	section
 		h3 Centralizado
-		+img('centralized.png')(style={ 'max-height': '82vh'})
+		+img('centralized.png')(style={ 'max-height': '82vh' })
 	section
 		h3 Distribuido
-		+img('distributed.png')(style={ 'max-height': '82vh'})
+		+img('distributed.png')(style={ 'max-height': '40vh' })
 	section
 		h2 Git
 		ul
@@ -33,7 +33,9 @@ block slides
 		+img('snapshots.png')(style={ 'background-color': '#fff', border: 'none' })
 	section
 		h3 Git areas
-		+img('git-areas.png')
+		+img('areas2.png')(style={ 'background-color': '#fff'})
+	section
+		+img('areas3.png')(style={ 'background-color': '#fff', 'max-height': '50vh'})
 	section
 		h2 Comandos
 	section
@@ -210,7 +212,7 @@ block slides
 				$ git branch -v # muestra el último commit de cada una
 		br
 		div.fragment
-			h4 Ver ramas mergeadas o no con la rama activa
+			h4 Ver branches mergeadas o no con la branch activa
 			pre
 				code.bash(data-trim).
 					$ git branch --merged
@@ -233,4 +235,44 @@ block slides
 		pre
 			code.bash(data-trim).
 				$ git branch -a
-		
+	section
+		+img('remote-branches-1.png')(style={ 'background': '#fff' })
+	section
+		+img('remote-branches-2.png')(style={ 'background': '#fff' })
+	section
+		+img('remote-branches-3.png')(style={ 'background': '#fff' })
+	section
+		h3 Tracking branches
+		div.fragment
+			h4 Ver branches + tracking branches
+			pre
+				code.bash(data-trim).
+					$ git branch -vv
+			div.fragment
+				h4 Hacer seguimiento de una remote branch
+				pre
+					code.bash(data-trim).
+						$ git branch -u origin/testing
+	section
+		h3 Tracking branches
+		div.fragment
+			h4 Ver branches + tracking branches
+			pre
+				code.bash(data-trim).
+					$ git branch -vv
+			div.fragment
+				h4 Hacer seguimiento de una remote branch
+				pre
+					code.bash(data-trim).
+						$ git branch -u origin/testing
+
+	section
+		h4 Borrar una branch local
+		pre
+			code.bash(data-trim).
+				$ git branch -d testing
+		br
+		h4 Borrar una branch remota
+		pre
+			code.bash(data-trim).
+				$ git push origin :testing

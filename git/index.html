@@ -27,7 +27,7 @@
           <h3>Centralizado</h3><img src="img/centralized.png" style="max-height:82vh;"/>
         </section>
         <section>
-          <h3>Distribuido</h3><img src="img/distributed.png" style="max-height:82vh;"/>
+          <h3>Distribuido</h3><img src="img/distributed.png" style="max-height:40vh;"/>
         </section>
         <section>
           <h2>Git</h2>
@@ -44,7 +44,9 @@
           <h3>Copias instantanéas (git)</h3><img src="img/snapshots.png" style="background-color:#fff;border:none;"/>
         </section>
         <section>
-          <h3>Git areas</h3><img src="img/git-areas.png"/>
+          <h3>Git areas</h3><img src="img/areas2.png" style="background-color:#fff;"/>
+        </section>
+        <section><img src="img/areas3.png" style="background-color:#fff;max-height:50vh;"/>
         </section>
         <section>
           <h2>Comandos</h2>
@@ -173,7 +175,7 @@ $ git commit -am 'made other changes'</code></pre><img src="img/advance-master.p
   testing</code></pre>
           <pre><code class="bash" data-trim>$ git branch -v # muestra el último commit de cada una</code></pre><br>
           <div class="fragment">
-            <h4>Ver ramas mergeadas o no con la rama activa</h4>
+            <h4>Ver branches mergeadas o no con la branch activa</h4>
             <pre><code class="bash" data-trim>$ git branch --merged</code></pre>
             <pre><code class="bash" data-trim>$ git branch --no-merged
 </code></pre>
@@ -192,6 +194,41 @@ $ git commit -am 'made other changes'</code></pre><img src="img/advance-master.p
           <div class="fragment"></div>
           <h4>Listar todas las branches</h4>
           <pre><code class="bash" data-trim>$ git branch -a</code></pre>
+        </section>
+        <section><img src="img/remote-branches-1.png" style="background:#fff;"/>
+        </section>
+        <section><img src="img/remote-branches-2.png" style="background:#fff;"/>
+        </section>
+        <section><img src="img/remote-branches-3.png" style="background:#fff;"/>
+        </section>
+        <section>
+          <h3>Tracking branches</h3>
+          <div class="fragment">
+            <h4>Ver branches + tracking branches</h4>
+            <pre><code class="bash" data-trim>$ git branch -vv</code></pre>
+            <div class="fragment">
+              <h4>Hacer seguimiento de una remote branch</h4>
+              <pre><code class="bash" data-trim>$ git branch -u origin/testing</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Tracking branches</h3>
+          <div class="fragment">
+            <h4>Ver branches + tracking branches</h4>
+            <pre><code class="bash" data-trim>$ git branch -vv</code></pre>
+            <div class="fragment">
+              <h4>Hacer seguimiento de una remote branch</h4>
+              <pre><code class="bash" data-trim>$ git branch -u origin/testing
+</code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h4>Borrar una branch local</h4>
+          <pre><code class="bash" data-trim>$ git branch -d testing</code></pre><br>
+          <h4>Borrar una branch remota</h4>
+          <pre><code class="bash" data-trim>$ git push origin :testing</code></pre>
         </section>
       </div>
     </div>
