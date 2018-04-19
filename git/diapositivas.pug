@@ -42,15 +42,16 @@ block slides
 			code.bash(data-trim).
 				$ git config --global user.name "Santiago Pernigotti"
 				$ git config --global user.email santiago@fizzmod.com
+				$ git config --global credential.helper cache
 				$ git config --list
 		p Las configuraciones globales se guardan en ~/.gitconfig
 	section
-		h3 Inicializando un repositorio
+		h3 Iniciar un repositorio
 		pre
 			code.bash(data-trim).
 				$ git init
 		br
-		h3 Clonando un repositorio existente
+		h3 Clonar un repositorio existente
 		pre
 			code.bash(data-trim).
 				$ git clone http://fizzmod-server/fizzmod/aurora.git
@@ -63,42 +64,160 @@ block slides
 			code.bash(data-trim).
 				$ git add index.js
 		br
-		h4 Revisar el estado de los Archivos
-		pre
-			code.bash(data-trim).
-				$ git status
+		div.fragment
+			h4 Revisar el estado de los Archivos
+			pre
+				code.bash(data-trim).
+					$ git status
 	section
 		h4 Ver los cambios no preparados (not staged)
 		pre
 			code.bash(data-trim).
 				$ git diff
 		br
-		h4 Ver los cambios preparados (staged)
-		pre
-			code.bash(data-trim).
-				$ git diff --staged
+		div.fragment
+			h4 Ver los cambios preparados (staged)
+			pre
+				code.bash(data-trim).
+					$ git diff --staged
 	section
 		h4 Committear los cambios
 		pre
 			code.bash(data-trim).
 				$ git commit -m "message"
 		br
-		h4 Commitear salteando el area de preparación
-		pre
-			code.bash(data-trim).
-				$ git commit -am "message"
+		div.fragment
+			h4 Commitear salteando el area de preparación
+			pre
+				code.bash(data-trim).
+					$ git commit -am "message"
 	section
 		h4 Ver el Historial de los commits
 		pre
 			code.bash(data-trim).
 				$ git log
-		//
-			pre
+		br
+		pre
 			code.bash(data-trim).
 				$ git log --all --decorate --oneline --graph
 	section
-		h4 Rehacer la última confirmación
+		h4 Rehacer el último commit
 		pre
 			code.bash(data-trim).
 				$ git commit --amend
-		
+		br
+		div.fragment
+			h4 Deshacer un archivo preparado
+			pre
+				code.bash(data-trim).
+					$ git reset HEAD index.js
+		br
+		div.fragment
+			h4 Deshacer un archivo modificado
+			pre
+				code.bash(data-trim).
+					$ git  checkout -- index.js
+	section
+		h3 Repositorios remotos (remotes)
+		+img('remotes.svg')(style={ 'background': '#fff', height: '300px' })
+		p.fragment
+			| El remote por defecto es 
+			strong origin
+	section
+		h4 Ver los remotes
+		pre
+			code.bash(data-trim).
+				$ git  remote -v
+		br
+		div.fragment
+			h4 Modificar url del remote
+			pre
+				code.bash(data-trim).
+					$ git remote set-url origin http://usuario@fizz.com.ar:8080/fizzmod/sportline.git
+	section
+		h4 Traer datos
+		pre
+			code.bash(data-trim).
+				$ git fetch [remote]
+		br
+		div.fragment
+			h4 Traer datos y mergear a la branch actual
+			pre
+				code.bash(data-trim).
+					$ git pull [remote] [branch]
+		br
+		div.fragment
+			h4 Enviar datos
+			pre
+				code.bash(data-trim).
+					$ git push [remote] [branch]
+	section
+		h3 Branches
+		+img('branches.svg')(style={ 'background': '#fff' })
+	section
+		+img('branch-and-history.png')(style={ 'background': '#fff' })
+		p historial de commits sobre master
+	section
+		h4 Crear una nueva branch
+		pre
+			code.bash(data-trim).
+				$ git branch testing
+		+img('head-to-master.png')(style={ 'background': '#fff' })
+	section
+		h4 Cambiar de branch
+		pre
+			code.bash(data-trim).
+				$ git checkout testing
+		+img('head-to-testing.png')(style={ 'background': '#fff' })
+	section
+		p Modifico y commiteo en la branch testing
+		pre
+			code.bash(data-trim).
+				$ nano index.js
+				$ git commit -am 'made a change'
+		+img('advance-testing.png')(style={ 'background': '#fff' })
+	section
+		p Vuelvo a master
+		pre
+			code.bash(data-trim).
+				$ git checkout master
+		+img('checkout-master.png')(style={ 'background': '#fff' })
+	section
+		p Hago algunos cambios más y commiteo
+		pre
+			code.bash(data-trim).
+				$ nano index.js
+				$ git commit -am 'made other changes'
+		+img('advance-master.png')(style={ 'background': '#fff' })
+	section
+		h4 Mergear una branch
+		pre
+			code.bash(data-trim).
+				$ git merge testing
+		+img('what-is-a-merge.gif').fragment
+	section
+		+img('what-is-a-fast-forward.gif')
+	section
+		h4 Listar las branches locales
+		pre
+			code.bash(data-trim).
+				$ git branch
+				  QA
+				* master
+				  testing
+		pre
+			code.bash(data-trim).
+				$ git branch -v # muestra el último commit de cada una
+		br
+		div.fragment
+			h4 Ver ramas mergeadas o no con la rama activa
+			pre
+				code.bash(data-trim).
+					$ git branch --merged
+			pre
+				code.bash(data-trim).
+					$ git branch --no-merged
+
+	section
+		div
+			h3 Remote branches

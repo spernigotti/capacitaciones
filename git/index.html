@@ -53,13 +53,14 @@
           <h3>Configuraciones</h3>
           <pre><code class="bash" data-trim>$ git config --global user.name "Santiago Pernigotti"
 $ git config --global user.email santiago@fizzmod.com
+$ git config --global credential.helper cache
 $ git config --list</code></pre>
           <p>Las configuraciones globales se guardan en ~/.gitconfig</p>
         </section>
         <section>
-          <h3>Inicializando un repositorio</h3>
+          <h3>Iniciar un repositorio</h3>
           <pre><code class="bash" data-trim>$ git init</code></pre><br>
-          <h3>Clonando un repositorio existente</h3>
+          <h3>Clonar un repositorio existente</h3>
           <pre><code class="bash" data-trim>$ git clone http://fizzmod-server/fizzmod/aurora.git</code></pre>
         </section>
         <section>
@@ -68,33 +69,120 @@ $ git config --list</code></pre>
         <section>
           <h4>Rastrear archivos nuevos o Preparar(stage) archivos modificados</h4>
           <pre><code class="bash" data-trim>$ git add index.js</code></pre><br>
-          <h4>Revisar el estado de los Archivos</h4>
-          <pre><code class="bash" data-trim>$ git status</code></pre>
+          <div class="fragment">
+            <h4>Revisar el estado de los Archivos</h4>
+            <pre><code class="bash" data-trim>$ git status</code></pre>
+          </div>
         </section>
         <section>
           <h4>Ver los cambios no preparados (not staged)</h4>
           <pre><code class="bash" data-trim>$ git diff</code></pre><br>
-          <h4>Ver los cambios preparados (staged)</h4>
-          <pre><code class="bash" data-trim>$ git diff --staged</code></pre>
+          <div class="fragment">
+            <h4>Ver los cambios preparados (staged)</h4>
+            <pre><code class="bash" data-trim>$ git diff --staged</code></pre>
+          </div>
         </section>
         <section>
           <h4>Committear los cambios</h4>
           <pre><code class="bash" data-trim>$ git commit -m "message"</code></pre><br>
-          <h4>Commitear salteando el area de preparación</h4>
-          <pre><code class="bash" data-trim>$ git commit -am "message"</code></pre>
+          <div class="fragment">
+            <h4>Commitear salteando el area de preparación</h4>
+            <pre><code class="bash" data-trim>$ git commit -am "message"</code></pre>
+          </div>
         </section>
         <section>
           <h4>Ver el Historial de los commits</h4>
-          <pre><code class="bash" data-trim>$ git log</code></pre>
-          <!--
-          pre
-          code.bash(data-trim).
-          	$ git log --all --decorate --oneline --graph
-          -->
+          <pre><code class="bash" data-trim>$ git log</code></pre><br>
+          <pre><code class="bash" data-trim>$ git log --all --decorate --oneline --graph</code></pre>
         </section>
         <section>
-          <h4>Rehacer la última confirmación</h4>
-          <pre><code class="bash" data-trim>$ git commit --amend</code></pre>
+          <h4>Rehacer el último commit</h4>
+          <pre><code class="bash" data-trim>$ git commit --amend</code></pre><br>
+          <div class="fragment">
+            <h4>Deshacer un archivo preparado</h4>
+            <pre><code class="bash" data-trim>$ git reset HEAD index.js</code></pre>
+          </div><br>
+          <div class="fragment">
+            <h4>Deshacer un archivo modificado</h4>
+            <pre><code class="bash" data-trim>$ git  checkout -- index.js</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Repositorios remotos (remotes)</h3><img src="img/remotes.svg" style="background:#fff;height:300px;"/>
+          <p class="fragment">El remote por defecto es <strong>origin</strong></p>
+        </section>
+        <section>
+          <h4>Ver los remotes</h4>
+          <pre><code class="bash" data-trim>$ git  remote -v</code></pre><br>
+          <div class="fragment">
+            <h4>Modificar url del remote</h4>
+            <pre><code class="bash" data-trim>$ git remote set-url origin http://usuario@fizz.com.ar:8080/fizzmod/sportline.git</code></pre>
+          </div>
+        </section>
+        <section>
+          <h4>Traer datos</h4>
+          <pre><code class="bash" data-trim>$ git fetch [remote]</code></pre><br>
+          <div class="fragment">
+            <h4>Traer datos y mergear a la branch actual</h4>
+            <pre><code class="bash" data-trim>$ git pull [remote] [branch]</code></pre>
+          </div><br>
+          <div class="fragment">
+            <h4>Enviar datos</h4>
+            <pre><code class="bash" data-trim>$ git push [remote] [branch]</code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Branches</h3><img src="img/branches.svg" style="background:#fff;"/>
+        </section>
+        <section><img src="img/branch-and-history.png" style="background:#fff;"/>
+          <p>historial de commits sobre master</p>
+        </section>
+        <section>
+          <h4>Crear una nueva branch</h4>
+          <pre><code class="bash" data-trim>$ git branch testing</code></pre><img src="img/head-to-master.png" style="background:#fff;"/>
+        </section>
+        <section>
+          <h4>Cambiar de branch</h4>
+          <pre><code class="bash" data-trim>$ git checkout testing</code></pre><img src="img/head-to-testing.png" style="background:#fff;"/>
+        </section>
+        <section>
+          <p>Modifico y commiteo en la branch testing</p>
+          <pre><code class="bash" data-trim>$ nano index.js
+$ git commit -am 'made a change'</code></pre><img src="img/advance-testing.png" style="background:#fff;"/>
+        </section>
+        <section>
+          <p>Vuelvo a master</p>
+          <pre><code class="bash" data-trim>$ git checkout master</code></pre><img src="img/checkout-master.png" style="background:#fff;"/>
+        </section>
+        <section>
+          <p>Hago algunos cambios más y commiteo</p>
+          <pre><code class="bash" data-trim>$ nano index.js
+$ git commit -am 'made other changes'</code></pre><img src="img/advance-master.png" style="background:#fff;"/>
+        </section>
+        <section>
+          <h4>Mergear una branch</h4>
+          <pre><code class="bash" data-trim>$ git merge testing</code></pre><img class="fragment" src="img/what-is-a-merge.gif"/>
+        </section>
+        <section><img src="img/what-is-a-fast-forward.gif"/>
+        </section>
+        <section>
+          <h4>Listar las branches locales</h4>
+          <pre><code class="bash" data-trim>$ git branch
+  QA
+* master
+  testing</code></pre>
+          <pre><code class="bash" data-trim>$ git branch -v # muestra el último commit de cada una</code></pre><br>
+          <div class="fragment">
+            <h4>Ver ramas mergeadas o no con la rama activa</h4>
+            <pre><code class="bash" data-trim>$ git branch --merged</code></pre>
+            <pre><code class="bash" data-trim>$ git branch --no-merged
+</code></pre>
+          </div>
+        </section>
+        <section>
+          <div>
+            <h3>Remote branches</h3>
+          </div>
         </section>
       </div>
     </div>
