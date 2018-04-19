@@ -219,5 +219,18 @@ block slides
 					$ git branch --no-merged
 
 	section
-		div
-			h3 Remote branches
+		h3 Remote branches
+		ul
+			li.fragment Referencias al estado de las branches del remote repo
+			li.fragment Se definen como remote/branch. Ejemplo: origin/master
+	section
+		h4 Listar las remote branches
+		pre
+			code.bash(data-trim).
+				$ git branch -r
+		div.fragment
+		h4 Listar todas las branches
+		pre
+			code.bash(data-trim).
+				$ git branch -a
+		
