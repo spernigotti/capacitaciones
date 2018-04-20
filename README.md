@@ -35,3 +35,7 @@
 ### Redux
 * [Diapositivas](https://spernigotti.github.io/capacitaciones/redux/)
 * [Práctica](https://github.com/spernigotti/capacitaciones/tree/master/redux/practica)
+
+### Git
+* [Diapositivas](https://spernigotti.github.io/capacitaciones/git/)
+* [Repo de demo](https://github.com/spernigotti/demo-git-capacitacion)
